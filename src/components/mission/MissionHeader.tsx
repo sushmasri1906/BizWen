@@ -2,8 +2,35 @@
 
 import { motion } from "framer-motion";
 import React from "react";
+import { PiUsersThreeDuotone, PiStudentDuotone } from "react-icons/pi";
+import { HiOutlineHashtag } from "react-icons/hi2";
+import { MdOutlineEmojiObjects } from "react-icons/md";
+import { FaHandsHelping } from "react-icons/fa";
 
 const MissionHeader = () => {
+	const missionItems = [
+		{
+			icon: <PiUsersThreeDuotone className="text-4xl text-red-600 mb-3" />,
+			text: "To empower women entrepreneurs by fostering a strong network of collaboration, education, and growth.",
+		},
+		{
+			icon: <HiOutlineHashtag className="text-4xl text-red-600 mb-3" />,
+			text: "To create business opportunities through meaningful connections and strategic partnerships.",
+		},
+		{
+			icon: <PiStudentDuotone className="text-4xl text-red-600 mb-3" />,
+			text: "To provide mentorship and resources that drive professional success and financial independence.",
+		},
+		{
+			icon: <MdOutlineEmojiObjects className="text-4xl text-red-600 mb-3" />,
+			text: "To encourage leadership and innovation in diverse industries.",
+		},
+		{
+			icon: <FaHandsHelping className="text-4xl text-red-600 mb-3" />,
+			text: "To promote social impact initiatives that uplift communities and create sustainable change.",
+		},
+	];
+
 	return (
 		<motion.section
 			initial={{ opacity: 0 }}
@@ -31,36 +58,15 @@ const MissionHeader = () => {
 					leadership development.
 				</motion.p>
 
-				<div className="grid md:grid-cols-2 gap-8 mt-10">
-					{[
-						{
-							emoji: "🌍",
-							text: "To empower women entrepreneurs by fostering a strong network of collaboration, education, and growth.",
-						},
-						{
-							emoji: "🤝",
-							text: "To create business opportunities through meaningful connections and strategic partnerships.",
-						},
-						{
-							emoji: "📈",
-							text: "To provide mentorship and resources that drive professional success and financial independence.",
-						},
-						{
-							emoji: "💡",
-							text: "To encourage leadership and innovation in diverse industries.",
-						},
-						{
-							emoji: "❤️",
-							text: "To promote social impact initiatives that uplift communities and create sustainable change.",
-						},
-					].map((item, index) => (
+				<div className="grid md:grid-cols-2 gap-8 mt-10 items-center">
+					{missionItems.map((item, index) => (
 						<motion.div
 							key={index}
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ delay: 0.3 + index * 0.2, duration: 0.6 }}
-							className="bg-white rounded-xl p-6 shadow-md border border-red-600">
-							<p className="text-2xl mb-2">{item.emoji}</p>
+							className="bg-white rounded-xl p-6 shadow-md border  border-red-600">
+							{item.icon}
 							<p className="text-md font-semibold text-gray-800">{item.text}</p>
 						</motion.div>
 					))}

@@ -8,10 +8,9 @@ function HomePage() {
 	return (
 		<>
 			<Header />
-			<Hero />
-			<Community />
-
 			<About />
+			<Community />
+			<Hero />
 		</>
 	);
 }

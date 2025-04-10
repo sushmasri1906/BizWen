@@ -1,6 +1,6 @@
 import React from "react";
-import { FaArrowRight } from "react-icons/fa"; // Import the arrow icon
-import Link from "next/link"; // Import Link from next/link
+import { FaArrowRight } from "react-icons/fa";
+import Link from "next/link";
 
 const Community = () => {
 	return (

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import React from "react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Header = () => {
 	return (
@@ -9,7 +10,8 @@ const Header = () => {
 			<div
 				className="relative  h-[96vh] flex items-center justify-center text-center text-white overflow-hidden bg-cover bg-no-repeat "
 				style={{
-					backgroundImage: "url('')",
+					backgroundImage:
+						"url('https://res.cloudinary.com/dsq4uyqbb/image/upload/v1741847984/WhatsApp_Image_2025-03-13_at_12.05.13_76b3970b_podkz1.jpg')",
 					backgroundSize: "cover",
 					backgroundPosition: "center",
 					backgroundAttachment: "fixed",
@@ -34,6 +36,14 @@ const Header = () => {
 							<button className="border border-red-600 px-6 py-3 rounded-lg text-lg font-semibold text-red-600 hover:bg-red-600 hover:text-black transition-all shadow-md">
 								About Us
 							</button>
+						</Link>
+						<Link
+							href="https://chat.whatsapp.com/your-invite-link-here"
+							target="_blank">
+							<div className="flex items-center gap-2 border border-green-600 px-4 py-3 rounded-lg text-lg font-semibold text-white bg-green-600 hover:text-black transition-all shadow-md cursor-pointer">
+								<FaWhatsapp className="text-xl" />
+								<span>Join WhatsApp Group</span>
+							</div>
 						</Link>
 					</div>
 				</div>
