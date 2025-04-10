@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Hero = () => {
 	return (
-		<section className="bg-white py-16">
+		<section className="bg-gray-100 py-16">
 			<div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
 				<div className="flex flex-col md:flex-row items-center gap-16">
 					{/* Text Section */}
