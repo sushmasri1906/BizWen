@@ -15,8 +15,8 @@ export default function JoinWEN() {
 						“Take the first step toward collaborative success.”
 					</p>
 					<p className="text-base text-gray-700 mb-6">
-						We&apos;re always looking for passionate professionals who believe in the
-						power of networking and mutual support. Whether you&apos;re a
+						We&apos;re always looking for passionate professionals who believe
+						in the power of networking and mutual support. Whether you&apos;re a
 						solopreneur, business owner, or service provider, WEN has a place
 						for you.
 					</p>
@@ -36,17 +36,15 @@ export default function JoinWEN() {
 					</Link>
 				</div>
 
-				{/* Right Visual */}
-				<div className="flex-1 flex justify-center items-center p-6 rounded-3xl">
-					<div className="rounded-[200px_0_200px_0] overflow-hidden shadow-[0_20px_40px_rgba(220,38,38,0.4)] transform transition duration-500 hover:scale-105">
-						<Image
-							src="https://res.cloudinary.com/dotuv0p3r/image/upload/v1744370087/8_cfpxot.jpg"
-							alt="WEN Event"
-							width={500}
-							height={400}
-							className="object-cover w-full h-auto"
-						/>
-					</div>
+				{/* Right Visual - Normal Styling */}
+				<div className="flex-1 flex justify-center items-center p-6">
+					<Image
+						src="https://res.cloudinary.com/dotuv0p3r/image/upload/v1744370087/8_cfpxot.jpg"
+						alt="WEN Event"
+						width={500}
+						height={400}
+						className="rounded-lg object-cover w-full h-auto"
+					/>
 				</div>
 			</div>
 		</section>

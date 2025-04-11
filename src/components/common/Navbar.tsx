@@ -3,9 +3,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { HiMenu, HiX } from "react-icons/hi";
 
 const Navbar = () => {
 	const pathname = usePathname();
+	const [menuOpen, setMenuOpen] = useState(false);
 
 	const navLinks = [
 		{ name: "Home", href: "/" },
@@ -29,7 +32,7 @@ const Navbar = () => {
 					</div>
 				</Link>
 
-				{/* Nav Links */}
+				{/* Desktop Nav Links */}
 				<div className="hidden md:flex space-x-6 items-center">
 					{navLinks.map((link) => (
 						<Link
@@ -44,7 +47,37 @@ const Navbar = () => {
 						</Link>
 					))}
 				</div>
+
+				{/* Mobile Menu Icon */}
+				<div className="md:hidden">
+					<button onClick={() => setMenuOpen(!menuOpen)}>
+						{menuOpen ? (
+							<HiX className="w-6 h-6 text-black" />
+						) : (
+							<HiMenu className="w-6 h-6 text-black" />
+						)}
+					</button>
+				</div>
 			</div>
+
+			{/* Mobile Dropdown Menu */}
+			{menuOpen && (
+				<div className="md:hidden bg-white/90 backdrop-blur-md px-6 pb-4 pt-2 shadow-md">
+					{navLinks.map((link) => (
+						<Link
+							key={link.name}
+							href={link.href}
+							onClick={() => setMenuOpen(false)}
+							className={`block py-2 text-sm font-semibold ${
+								pathname === link.href
+									? "text-red-600"
+									: "text-black hover:text-red-500"
+							}`}>
+							{link.name}
+						</Link>
+					))}
+				</div>
+			)}
 		</nav>
 	);
 };
