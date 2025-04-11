@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import WomensDayAwards from "./WomensDayAwards";
 
 function AwardsHome() {
-  return (
-    <div>AwardsHome</div>
-  )
+	return (
+		<>
+			<WomensDayAwards />
+		</>
+	);
 }
 
-export default AwardsHome
+export default AwardsHome;
