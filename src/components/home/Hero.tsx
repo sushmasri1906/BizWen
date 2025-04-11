@@ -35,7 +35,7 @@ const Hero = () => {
 					{/* Image Section */}
 					<div className="w-full md:w-1/2 flex justify-center">
 						<Image
-							src="https://res.cloudinary.com/dsq4uyqbb/image/upload/v1744353517/6_sb20hg.jpg"
+							src="https://res.cloudinary.com/dotuv0p3r/image/upload/v1744368402/7_yzhrsk.jpg"
 							alt="WEN Hero"
 							width={600}
 							height={600}

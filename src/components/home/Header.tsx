@@ -67,7 +67,7 @@ const Header = () => {
 								</Link>
 								<Link href="/events">
 									<button className="inline-flex justify-center items-center bg-red-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-red-700 transition-all shadow min-w-[200px] text-center">
-										Explore Events
+										Upcoming Events
 									</button>
 								</Link>
 							</div>

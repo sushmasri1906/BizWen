@@ -4,12 +4,14 @@ import About from "./About";
 import Community from "./Community";
 import Header from "./Header";
 import WhyJoinWEN from "./WhyJoinWen";
+import JoinWEN from "./JoinWEN";
 
 function HomePage() {
 	return (
 		<>
 			<Header />
 			<About />
+			<JoinWEN />
 			<WhyJoinWEN />
 			<Community />
 			<Hero />
