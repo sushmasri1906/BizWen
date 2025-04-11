@@ -92,7 +92,7 @@ const Footer = () => {
 						workshops, and resources curated for women entrepreneurs.
 					</p>
 					<Link
-						href="https://chat.whatsapp.com/ABCD1234EFGH5678"
+						href="https://chat.whatsapp.com/LTnBs4Y2Ge4Hsh0Pt6UitJ"
 						target="_blank"
 						className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md text-sm font-semibold transition-colors">
 						<FaWhatsapp /> Join WhatsApp Group

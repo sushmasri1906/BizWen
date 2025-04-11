@@ -9,23 +9,21 @@ const Navbar = () => {
 
 	const navLinks = [
 		{ name: "Home", href: "/" },
-		// { name: "About", href: "/about" },
-
 		{ name: "Events", href: "/events" },
 		{ name: "Mission", href: "/mission" },
 	];
 
 	return (
-		<nav className="bg-white shadow-sm py-2 h-24">
-			<div className="max-w-7xl mx-auto flex justify-between items-center px-4">
+		<nav className="fixed top-0 left-0 w-full z-50 bg-white/10 backdrop-blur-md border-b border-white/20 shadow-md">
+			<div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-3 md:py-4">
 				{/* Logo */}
 				<Link href="/" className="flex items-center">
-					<div className="h-[80px] w-[80px] overflow-hidden rounded-b-full">
+					<div className="h-[60px] w-[60px] overflow-hidden rounded-b-full">
 						<Image
 							src="https://res.cloudinary.com/dsq4uyqbb/image/upload/v1744194981/WEN_Logo_1_s99dua.png"
 							alt="WEN Logo"
-							width={100}
-							height={100}
+							width={60}
+							height={60}
 							className="object-cover"
 						/>
 					</div>
@@ -37,10 +35,10 @@ const Navbar = () => {
 						<Link
 							key={link.name}
 							href={link.href}
-							className={`text-sm font-semibold ${
+							className={`text-sm font-semibold transition-colors ${
 								pathname === link.href
 									? "text-red-600"
-									: "text-slate-900 hover:text-red-600"
+									: "text-black hover:text-red-500"
 							}`}>
 							{link.name}
 						</Link>

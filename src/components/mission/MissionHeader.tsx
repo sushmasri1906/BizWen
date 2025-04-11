@@ -36,7 +36,7 @@ const MissionHeader = () => {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 1 }}
-			className="min-h-screen bg-gradient-to-br bg-white py-20 px-6 text-gray-800">
+			className="min-h-screen bg-gradient-to-br bg-white py-30 px-6 text-gray-800">
 			<div className="max-w-5xl mx-auto">
 				<motion.h2
 					initial={{ y: -20, opacity: 0 }}

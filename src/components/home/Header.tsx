@@ -2,52 +2,91 @@
 
 import Link from "next/link";
 import React from "react";
+import Slider from "react-slick";
 import { FaWhatsapp } from "react-icons/fa";
+import Image from "next/image";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+const images = [
+	"https://res.cloudinary.com/dotuv0p3r/image/upload/v1744361028/1_u2r8vk.png",
+	"https://res.cloudinary.com/dotuv0p3r/image/upload/v1744361034/2_vzi49a.png",
+	"https://res.cloudinary.com/dotuv0p3r/image/upload/v1744361041/3_ahkixk.png",
+	"https://res.cloudinary.com/dotuv0p3r/image/upload/v1744361049/4_thgm8l.png",
+];
 
 const Header = () => {
-	return (
-		<section>
-			<div
-				className="relative  h-[96vh] flex items-center justify-center text-center text-white overflow-hidden bg-cover bg-no-repeat "
-				style={{
-					backgroundImage:
-						"url('https://res.cloudinary.com/dsq4uyqbb/image/upload/v1741847984/WhatsApp_Image_2025-03-13_at_12.05.13_76b3970b_podkz1.jpg')",
-					backgroundSize: "cover",
-					backgroundPosition: "center",
-					backgroundAttachment: "fixed",
-				}}>
-				<div className="relative z-10 max-w-3xl px-6 bg-black/40 backdrop-blur-xl p-10 shadow-2xl rounded-xl">
-					<h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
-						Welcome to <span className="text-red-600">WEN</span>
-					</h1>
-
-					<p className="mt-4 text-lg md:text-xl font-medium text-gray-200">
-						Connecting communities through unforgettable web events. Discover,
-						organize, and attend online experiences with ease.
-					</p>
-
-					<div className="mt-6 flex justify-center space-x-4">
-						<Link href="/events">
-							<button className="bg-red-600 text-black px-6 py-3 rounded-lg text-lg font-semibold hover:bg-red-700 transition-all shadow-md">
-								Explore Events
-							</button>
-						</Link>
-						<Link href="/about">
-							<button className="border border-red-600 px-6 py-3 rounded-lg text-lg font-semibold text-red-600 hover:bg-red-600 hover:text-black transition-all shadow-md">
-								About Us
-							</button>
-						</Link>
-						<Link
-							href="https://chat.whatsapp.com/your-invite-link-here"
-							target="_blank">
-							<div className="flex items-center gap-2 border border-green-600 px-4 py-3 rounded-lg text-lg font-semibold text-white bg-green-600 hover:text-black transition-all shadow-md cursor-pointer">
-								<FaWhatsapp className="text-xl" />
-								<span>Join WhatsApp Group</span>
-							</div>
-						</Link>
-					</div>
-				</div>
+	const settings = {
+		dots: true,
+		infinite: true,
+		speed: 1000,
+		autoplay: true,
+		autoplaySpeed: 3000,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: false,
+		fade: true,
+		pauseOnHover: false,
+		appendDots: (dots: React.ReactNode) => (
+			<div className="flex justify-center mt-4">
+				<ul className="flex gap-2">{dots}</ul>
 			</div>
+		),
+		dotsClass: "slick-dots custom-dots",
+	};
+
+	return (
+		<section className="relative pt-[80px] h-[calc(100vh-80px)] w-full overflow-hidden text-white">
+			<Slider {...settings} className="h-full w-full">
+				{images.map((img, index) => (
+					<div key={index} className="relative w-full h-[calc(100vh-80px)]">
+						<Image
+							src={img}
+							alt={`slide-${index}`}
+							fill
+							className="object-cover object-center"
+							priority
+						/>
+						{/* Gradient overlay */}
+						<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+
+						{/* Content over image */}
+						<div className="absolute inset-0 flex flex-col justify-end items-center text-center pb-28 px-6">
+							<h1 className="text-4xl md:text-5xl font-extrabold mb-4">
+								Connect | Collaborate | Grow
+							</h1>
+
+							{/* CTA Buttons */}
+							<div className="mt-6 flex flex-wrap justify-center gap-4">
+								<Link
+									href="https://chat.whatsapp.com/LTnBs4Y2Ge4Hsh0Pt6UitJ"
+									target="_blank"
+									className="inline-flex justify-center items-center gap-2 bg-green-500 hover:bg-green-600 text-black px-6 py-3 rounded-full text-lg font-semibold transition-all shadow min-w-[200px] text-center">
+									<FaWhatsapp className="text-xl" />
+									<span>Join WhatsApp</span>
+								</Link>
+								<Link href="/events">
+									<button className="inline-flex justify-center items-center bg-red-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-red-700 transition-all shadow min-w-[200px] text-center">
+										Explore Events
+									</button>
+								</Link>
+							</div>
+						</div>
+					</div>
+				))}
+			</Slider>
+
+			<style jsx global>{`
+				.custom-dots li button:before {
+					color: white;
+					font-size: 12px;
+					opacity: 0.5;
+				}
+				.custom-dots li.slick-active button:before {
+					opacity: 1;
+					color: #ef4444; /* Tailwind red-500 */
+				}
+			`}</style>
 		</section>
 	);
 };
