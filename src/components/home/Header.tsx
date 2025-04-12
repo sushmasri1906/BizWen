@@ -1,19 +1,24 @@
 "use client";
 
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 import Slider from "react-slick";
 import { FaWhatsapp } from "react-icons/fa";
-import Image from "next/image";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const images = [
-	"https://res.cloudinary.com/dotuv0p3r/image/upload/v1744361028/1_u2r8vk.png",
-	"https://res.cloudinary.com/dotuv0p3r/image/upload/v1744361034/2_vzi49a.png",
-	"https://res.cloudinary.com/dotuv0p3r/image/upload/v1744361041/3_ahkixk.png",
-	"https://res.cloudinary.com/dotuv0p3r/image/upload/v1744361049/4_thgm8l.png",
-];
+// Local images
+import img1 from "../../../public/assets/1.jpg";
+import img2 from "../../../public/assets/2.jpg";
+import img3 from "../../../public/assets/3.jpg";
+import img4 from "../../../public/assets/4.jpg";
+// import img5 from "../../../public/assets/5.jpg";
+// import img6 from "../../../public/assets/6.jpg";
+// import img7 from "../../../public/assets/7.jpg";
+
+const images = [img1, img2, img3, img4];
 
 const Header = () => {
 	const settings = {
@@ -47,16 +52,13 @@ const Header = () => {
 							className="object-cover object-center"
 							priority
 						/>
-						{/* Gradient overlay */}
-						<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+						<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
 
-						{/* Content over image */}
 						<div className="absolute inset-0 flex flex-col justify-end items-center text-center pb-28 px-6">
 							<h1 className="text-4xl md:text-5xl font-extrabold mb-4">
 								Connect | Collaborate | Grow
 							</h1>
 
-							{/* CTA Buttons */}
 							<div className="mt-6 flex flex-wrap justify-center gap-4">
 								<Link
 									href="https://chat.whatsapp.com/LTnBs4Y2Ge4Hsh0Pt6UitJ"
@@ -84,7 +86,7 @@ const Header = () => {
 				}
 				.custom-dots li.slick-active button:before {
 					opacity: 1;
-					color: #ef4444; /* Tailwind red-500 */
+					color: #ef4444;
 				}
 			`}</style>
 		</section>

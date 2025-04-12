@@ -39,26 +39,22 @@ const Footer = () => {
 					</h3>
 					<ul className="text-sm space-y-3 text-gray-300">
 						<li className="flex gap-3 items-start">
-							<FaMapMarkerAlt className="mt-1 text-red-500" />
-							<span>adress</span>
+							<FaMapMarkerAlt className="mt-1 h-7 w-7 text-red-500" />
+							<span>
+								{" "}
+								Flat 102, RR Heights, East Srinivas Nagar Colony, Srinivasa
+								Nagar, Ameerpet, Hyderabad, Telangana 500038
+							</span>
 						</li>
-						<li className="flex gap-3 items-start">
-							<FaMapMarkerAlt className="mt-1 text-red-500" />
-							<span>adress</span>
-						</li>
+
 						<li className="flex items-center gap-3">
 							<FaPhoneAlt className="text-red-500" />
-							+91 99999 88888
+							+91 91606 66649
 						</li>
 						<li className="flex items-center gap-3">
 							<FaEnvelope className="text-red-500" />
-							email
+							wennetwork68@gmail.com
 						</li>
-						<li className="flex items-center gap-3">
-							<FaEnvelope className="text-red-500" />
-							email
-						</li>
-						<li className="font-medium text-gray-400">GST No: </li>
 					</ul>
 				</div>
 
