@@ -95,9 +95,18 @@ const Footer = () => {
 					</Link>
 				</div>
 			</div>
-
 			<div className="text-center border-t border-gray-700 mt-12 pt-5 text-sm text-gray-400">
 				© 2025 WEN Network. All rights reserved.
+				<br />
+				<span>
+					Developed by{" "}
+					<Link
+						href="https://www.hsdev.in/"
+						target="_blank"
+						className="text-red-600 hover:text-red-700 ">
+						hsdev.in
+					</Link>
+				</span>
 			</div>
 		</motion.footer>
 	);
