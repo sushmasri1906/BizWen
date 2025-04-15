@@ -48,7 +48,7 @@ const Header = () => {
 	};
 
 	return (
-		<section className="relative pt-[80px] w-full overflow-hidden text-white">
+		<section className="relative pt-[95px]  w-full overflow-hidden text-white">
 			<Slider {...settings} className="h-full w-full">
 				{images.map((img, index) => (
 					<div
@@ -67,7 +67,7 @@ const Header = () => {
 									className="object-cover"
 								/>
 								{/* Gradient Overlay */}
-								<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
+								<div className="absolute inset-0 bg-gradient-to-t  from-black/80 via-black/30 to-transparent z-10" />
 							</>
 						) : (
 							<Image
