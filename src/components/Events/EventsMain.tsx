@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 export default function EventsMain() {
 	const events = [
@@ -18,19 +19,31 @@ export default function EventsMain() {
 	];
 
 	return (
-		<section className="relative py-[120px] min-h-[calc(100vh-80px)] w-full bg-gray-50 text-black px-4 sm:px-6 lg:px-8">
+		<section className="relative py-[120px] min-h-[calc(100vh-80px)] w-full bg-gradient-to-br from-gray-50 via-white to-red-50 text-black px-4 sm:px-6 lg:px-8">
 			<div className="max-w-7xl mx-auto">
-				<h1 className="text-4xl font-bold text-red-600 mb-4">WEN Events</h1>
-				<p className="text-gray-700 mb-10">
-					Stay updated with upcoming and past events organized by Women
-					Entrepreneurs Network (WEN). Every event brings inspiration,
-					connection, and empowerment.
-				</p>
+				<motion.div
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.6 }}
+					viewport={{ once: true }}>
+					<h1 className="text-4xl font-extrabold text-red-600 mb-4">
+						WEN Events
+					</h1>
+					<p className="text-gray-700 mb-10 max-w-3xl">
+						Explore impactful events that bring together ambitious women
+						entrepreneurs from across the globe. Every event fosters connection,
+						learning, and the celebration of success.
+					</p>
+				</motion.div>
 
 				<div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
 					{events.map((event, index) => (
-						<div
+						<motion.div
 							key={index}
+							initial={{ opacity: 0, y: 20 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.5, delay: index * 0.2 }}
+							viewport={{ once: true }}
 							className="bg-white rounded-2xl shadow hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col">
 							<div className="relative w-full h-56">
 								<Image
@@ -54,30 +67,33 @@ export default function EventsMain() {
 									<Link
 										href="/gallery"
 										className="inline-flex items-center text-red-600 hover:text-red-700 font-semibold transition-colors">
-										View More <FaArrowRight className="ml-2" />
+										View Gallery <FaArrowRight className="ml-2" />
 									</Link>
 								</div>
 							</div>
-						</div>
+						</motion.div>
 					))}
 				</div>
 
 				{/* Awards Section */}
-				<div className="mt-20 text-center">
-					<h2 className="text-2xl font-semibold text-red-600 mb-3">
-						WEN Awards
-					</h2>
+				<motion.div
+					initial={{ opacity: 0, y: 40 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.6, delay: 0.4 }}
+					viewport={{ once: true }}
+					className="mt-24 text-center">
+					<h2 className="text-2xl font-bold text-red-600 mb-3">WEN Awards</h2>
 					<p className="text-gray-700 max-w-2xl mx-auto mb-6">
-						Recognizing the outstanding achievements of women entrepreneurs. WEN
-						Awards celebrate leadership, innovation, and community impact. Check
-						out our award winners and memorable moments.
+						Honoring trailblazing women entrepreneurs who have redefined success
+						and inspired others through excellence, creativity, and impact.
+						Explore our award winners and their inspiring journeys.
 					</p>
 					<Link
 						href="/awards"
 						className="inline-flex items-center text-red-600 hover:text-red-700 font-semibold transition-colors">
 						View Awards <FaArrowRight className="ml-2" />
 					</Link>
-				</div>
+				</motion.div>
 			</div>
 		</section>
 	);

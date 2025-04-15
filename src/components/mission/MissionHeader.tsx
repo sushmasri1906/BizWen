@@ -10,23 +10,33 @@ import { FaHandsHelping } from "react-icons/fa";
 const MissionHeader = () => {
 	const missionItems = [
 		{
-			icon: <PiUsersThreeDuotone className="text-4xl text-red-600 mb-3" />,
+			icon: (
+				<PiUsersThreeDuotone className="text-4xl text-red-600 mb-3 hover:text-red-800 transition-all duration-300" />
+			),
 			text: "To empower women entrepreneurs by fostering a strong network of collaboration, education, and growth.",
 		},
 		{
-			icon: <HiOutlineHashtag className="text-4xl text-red-600 mb-3" />,
+			icon: (
+				<HiOutlineHashtag className="text-4xl text-red-600 mb-3 hover:text-red-800 transition-all duration-300" />
+			),
 			text: "To create business opportunities through meaningful connections and strategic partnerships.",
 		},
 		{
-			icon: <PiStudentDuotone className="text-4xl text-red-600 mb-3" />,
+			icon: (
+				<PiStudentDuotone className="text-4xl text-red-600 mb-3 hover:text-red-800 transition-all duration-300" />
+			),
 			text: "To provide mentorship and resources that drive professional success and financial independence.",
 		},
 		{
-			icon: <MdOutlineEmojiObjects className="text-4xl text-red-600 mb-3" />,
+			icon: (
+				<MdOutlineEmojiObjects className="text-4xl text-red-600 mb-3 hover:text-red-800 transition-all duration-300" />
+			),
 			text: "To encourage leadership and innovation in diverse industries.",
 		},
 		{
-			icon: <FaHandsHelping className="text-4xl text-red-600 mb-3" />,
+			icon: (
+				<FaHandsHelping className="text-4xl text-red-600 mb-3 hover:text-red-800 transition-all duration-300" />
+			),
 			text: "To promote social impact initiatives that uplift communities and create sustainable change.",
 		},
 	];
@@ -36,8 +46,8 @@ const MissionHeader = () => {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 1 }}
-			className="min-h-screen bg-gradient-to-br bg-white py-30 px-6 text-gray-800">
-			<div className="max-w-5xl mx-auto">
+			className="min-h-screen bg-gradient-to-br from-red-50 to-white py-30 px-6 text-gray-800">
+			<div className="max-w-6xl mx-auto">
 				<motion.h2
 					initial={{ y: -20, opacity: 0 }}
 					animate={{ y: 0, opacity: 1 }}
@@ -58,16 +68,18 @@ const MissionHeader = () => {
 					leadership development.
 				</motion.p>
 
-				<div className="grid md:grid-cols-2 gap-8 mt-10 items-center">
+				<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 items-center">
 					{missionItems.map((item, index) => (
 						<motion.div
 							key={index}
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ delay: 0.3 + index * 0.2, duration: 0.6 }}
-							className="bg-white rounded-xl p-6 shadow-md border  border-red-600">
+							className="bg-white shadow-lg rounded-xl p-8 flex flex-col items-center transition-all duration-300 hover:scale-105 hover:shadow-xl border border-red-600">
 							{item.icon}
-							<p className="text-md font-semibold text-gray-800">{item.text}</p>
+							<p className="text-md font-semibold text-gray-800 text-center mt-4">
+								{item.text}
+							</p>
 						</motion.div>
 					))}
 				</div>

@@ -4,22 +4,28 @@ import Link from "next/link";
 
 const Community = () => {
 	return (
-		<section className="bg-white text-gray-900 h-[60vh] flex items-center justify-center py-16 px-4">
-			<div className="max-w-6xl mx-auto text-center">
-				<h2 className="text-2xl text-red-600 font-semibold tracking-wider mb-4">
-					Connect | Collaborate | Grow
+		<section className="relative bg-gradient-to-br from-white via-gray-50 to-red-50 text-gray-900 py-24 px-6 md:px-12 lg:px-24">
+			<div className="max-w-5xl mx-auto text-center z-10 relative">
+				<h2 className="text-3xl md:text-4xl font-extrabold text-red-600 tracking-tight mb-4">
+					Connect. Collaborate. Grow.
 				</h2>
-				<p className="text-lg mb-8">
-					Join a dynamic network of ambitious professionals, entrepreneurs,
+				<p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto mb-8">
+					Join a vibrant network of ambitious professionals, entrepreneurs,
 					mentors, innovators, and leaders who are shaping the future. At WEN,
-					we empower growth, collaboration, and success.
+					we believe in the power of community to drive success and create
+					impact.
 				</p>
 				<Link
 					href="#join"
-					className="text-red-600 transition duration-300 inline-flex items-center font-medium text-lg hover:underline">
-					Join the WEN Community
-					<FaArrowRight className="ml-2" />
+					className="inline-flex items-center justify-center bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg shadow hover:bg-red-700 transition duration-300">
+					Join the WEN Community <FaArrowRight className="ml-3" />
 				</Link>
+			</div>
+
+			{/* Optional Background Decorative Element */}
+			<div className="absolute inset-0 pointer-events-none">
+				<div className="absolute top-10 left-10 w-40 h-40 bg-red-100 rounded-full opacity-30 blur-3xl" />
+				<div className="absolute bottom-10 right-10 w-40 h-40 bg-red-100 rounded-full opacity-20 blur-2xl" />
 			</div>
 		</section>
 	);

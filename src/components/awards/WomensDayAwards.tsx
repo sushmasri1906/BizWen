@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const awardImages = [
 	"https://res.cloudinary.com/dotuv0p3r/image/upload/v1744365861/18_abypji.jpg",
@@ -22,23 +23,29 @@ const WomensDayAwards = () => {
 	return (
 		<section className="min-h-screen px-4 py-30 bg-white dark:bg-black text-black dark:text-white">
 			<div className="max-w-7xl mx-auto">
-				<h1 className="text-4xl font-bold mb-10 text-center">
+				<h1 className="text-4xl font-bold mb-10 text-center text-red-600">
 					Women&apos;s Day Awards 2025
 				</h1>
 
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 					{awardImages.map((url, index) => (
-						<div
+						<motion.div
 							key={index}
-							className="bg-white dark:bg-neutral-900 rounded-xl overflow-hidden shadow-lg p-4 flex flex-col items-center">
+							initial={{ opacity: 0, y: 20 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true }}
+							transition={{ duration: 0.6, delay: index * 0.05 }}
+							className="bg-white dark:bg-neutral-900 overflow-hidden shadow-lg p-4 flex flex-col items-center">
 							<Image
-								src={url}
+								src={url.replace("/upload/", "/upload/f_auto,q_auto/")}
 								alt={`Award ${index + 1}`}
 								width={500}
 								height={350}
-								className="rounded-md object-contain w-full h-auto"
+								className="object-contain w-full h-auto"
+								placeholder="blur"
+								blurDataURL="/placeholder.jpg"
 							/>
-						</div>
+						</motion.div>
 					))}
 				</div>
 			</div>
