@@ -7,7 +7,7 @@ const About = () => {
 			<div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
 				{/* Image Section */}
 				<div className="w-full md:w-1/2">
-					<div className="relative overflow-hidden rounded-2xl shadow-lg group">
+					<div className="relative overflow-hidden shadow-lg group">
 						<Image
 							src="https://res.cloudinary.com/dsq4uyqbb/image/upload/v1744353073/5_f51qel.jpg"
 							alt="About WEN"

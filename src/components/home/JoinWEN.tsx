@@ -43,7 +43,7 @@ export default function JoinWEN() {
 						alt="WEN Event"
 						width={500}
 						height={400}
-						className="rounded-lg object-cover w-full h-auto"
+						className=" object-cover w-full h-auto"
 					/>
 				</div>
 			</div>

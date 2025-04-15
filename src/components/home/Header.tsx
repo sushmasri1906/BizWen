@@ -76,7 +76,7 @@ const Header = () => {
 								width={1300}
 								height={680}
 								quality={100}
-								className="rounded-md object-cover w-full h-auto"
+								className=" object-cover w-full h-auto"
 							/>
 						)}
 					</div>
