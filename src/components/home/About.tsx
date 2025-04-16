@@ -28,9 +28,8 @@ const About = () => {
 	};
 
 	return (
-		<section className="bg-white dark:bg-black py-20 px-6 md:px-10 transition-colors duration-300">
+		<section className="bg-white py-20 px-6 md:px-10 ">
 			<div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
-				{/* Image Slider Section */}
 				<div className="w-full md:w-1/2">
 					<Slider {...sliderSettings}>
 						{imageUrls.map((url, index) => (
@@ -49,7 +48,6 @@ const About = () => {
 					</Slider>
 				</div>
 
-				{/* Text Section */}
 				<div className="w-full md:w-1/2 text-center md:text-left">
 					<h2 className="text-4xl md:text-5xl font-extrabold text-[#0B0C2A] dark:text-white leading-tight mb-6">
 						<span className="text-red-600">W</span>omen <br />
