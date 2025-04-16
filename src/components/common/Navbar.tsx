@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
 	const pathname = usePathname();
@@ -17,19 +18,19 @@ const Navbar = () => {
 	];
 
 	return (
-		<nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
-			<div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-3 md:py-4">
+		<nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md transition-all duration-300 ease-in-out">
+			<div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-2 md:py-3">
 				{/* Logo */}
 				<Link href="/" className="flex items-center">
-					<div className="h-[60px] w-[60px] overflow-hidden rounded-b-full">
-						<Image
-							src="https://res.cloudinary.com/dsq4uyqbb/image/upload/v1744194981/WEN_Logo_1_s99dua.png"
-							alt="WEN Logo"
-							width={60}
-							height={60}
-							className="object-cover"
-						/>
-					</div>
+					<Image
+						src="https://res.cloudinary.com/dsq4uyqbb/image/upload/v1744796359/Logos_For_We_Work_t24ef3.png"
+						alt="WEN Logo"
+						width={120}
+						height={40}
+						className="object-contain w-32 h-auto"
+						priority
+						quality={100} // Ensures high quality
+					/>
 				</Link>
 
 				{/* Desktop Nav Links */}
@@ -38,10 +39,8 @@ const Navbar = () => {
 						<Link
 							key={link.name}
 							href={link.href}
-							className={`text-sm font-semibold transition-colors ${
-								pathname === link.href
-									? "text-red-600"
-									: "text-black hover:text-red-500"
+							className={`text-sm font-semibold transition-colors hover:text-red-500 ${
+								pathname === link.href ? "text-red-600" : "text-black"
 							}`}>
 							{link.name}
 						</Link>
@@ -62,21 +61,24 @@ const Navbar = () => {
 
 			{/* Mobile Dropdown Menu */}
 			{menuOpen && (
-				<div className="md:hidden bg-white px-6 pb-4 pt-2 shadow-md">
+				<motion.div
+					className="md:hidden bg-white px-6 pb-4 pt-2 shadow-md"
+					initial={{ opacity: 0, y: -10 }}
+					animate={{ opacity: 1, y: 0 }}
+					exit={{ opacity: 0, y: 10 }}
+					transition={{ duration: 0.3 }}>
 					{navLinks.map((link) => (
 						<Link
 							key={link.name}
 							href={link.href}
 							onClick={() => setMenuOpen(false)}
-							className={`block py-2 text-sm font-semibold ${
-								pathname === link.href
-									? "text-red-600"
-									: "text-black hover:text-red-500"
+							className={`block py-2 text-sm font-semibold transition-colors hover:text-red-500 ${
+								pathname === link.href ? "text-red-600" : "text-black"
 							}`}>
 							{link.name}
 						</Link>
 					))}
-				</div>
+				</motion.div>
 			)}
 		</nav>
 	);
