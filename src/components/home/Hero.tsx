@@ -8,7 +8,6 @@ const Hero = () => {
 		<section className="bg-gradient-to-br from-gray-50 via-white to-red-50 py-20">
 			<div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
 				<div className="flex flex-col-reverse md:flex-row items-center justify-between gap-16">
-					{/* Text Section */}
 					<div className="w-full md:w-1/2 text-center md:text-left">
 						<h1 className="text-4xl md:text-5xl font-extrabold text-red-600 mb-6 leading-tight">
 							Empowering <br className="hidden md:block" />
@@ -33,9 +32,8 @@ const Hero = () => {
 						</div>
 					</div>
 
-					{/* Image Section */}
 					<div className="w-full md:w-1/2 flex justify-center">
-						<div className="relative w-[90%] max-w-md rounded-3xl overflow-hidden shadow-xl">
+						<div className="relative w-[90%] max-w-md  overflow-hidden shadow-xl">
 							<Image
 								src="https://res.cloudinary.com/dotuv0p3r/image/upload/v1744368402/7_yzhrsk.jpg"
 								alt="WEN Hero"

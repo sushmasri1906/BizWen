@@ -17,17 +17,17 @@ const Footer = () => {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 1 }}
-			className="bg-gray-900 text-gray-100 pt-16 pb-8 px-6">
+			className="bg-red-200 text-black pt-16 pb-8 px-6">
 			<div className="max-w-7xl mx-auto grid md:grid-cols-4 sm:grid-cols-2 gap-10">
 				<div>
 					<Image
-						src="https://res.cloudinary.com/dsq4uyqbb/image/upload/v1744194981/WEN_Logo_1_s99dua.png"
+						src="https://res.cloudinary.com/dsq4uyqbb/image/upload/v1744796359/Logos_For_We_Work_t24ef3.png"
 						alt="WEN Logo"
-						width={100}
-						height={80}
-						className="mb-4 rounded-b-full ml-4"
+						width={160}
+						height={100}
+						className="mb-4 ml-4"
 					/>
-					<p className="text-sm leading-relaxed text-gray-300">
+					<p className="text-sm leading-relaxed text-black">
 						A dynamic platform empowering women entrepreneurs through community,
 						collaboration, and growth.
 					</p>
@@ -37,7 +37,7 @@ const Footer = () => {
 					<h3 className="text-lg font-semibold text-red-600 mb-3">
 						Contact Us
 					</h3>
-					<ul className="text-sm space-y-3 text-gray-300">
+					<ul className="text-sm space-y-3 text-black">
 						<li className="flex gap-3 items-start">
 							<FaMapMarkerAlt className="mt-1 h-7 w-7 text-red-500" />
 							<span>
@@ -62,7 +62,7 @@ const Footer = () => {
 					<h3 className="text-lg font-semibold text-red-600 mb-3">
 						Quick Links
 					</h3>
-					<ul className="text-sm space-y-3 text-gray-300">
+					<ul className="text-sm space-y-3 text-black">
 						{[
 							["Home", "/"],
 							["Events", "/events"],
@@ -83,7 +83,7 @@ const Footer = () => {
 					<h3 className="text-lg font-semibold text-red-600 mb-3">
 						Join Our Community
 					</h3>
-					<p className="text-sm text-gray-300 mb-4">
+					<p className="text-sm text-black mb-4">
 						Be a part of our vibrant WhatsApp group and stay updated on events,
 						workshops, and resources curated for women entrepreneurs.
 					</p>
@@ -95,8 +95,8 @@ const Footer = () => {
 					</Link>
 				</div>
 			</div>
-			<div className="text-center border-t border-gray-700 mt-12 pt-5 text-sm text-gray-400">
-				© 2025 WEN Network. All rights reserved.
+			<div className="text-center border-t border-gray-700 mt-12 pt-5 text-sm text-black">
+				© 2025 Biz-Network®. All rights reserved.
 				<br />
 				<span>
 					Developed by{" "}
