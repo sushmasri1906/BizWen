@@ -9,7 +9,7 @@ export default function JoinWEN() {
 					<h2 className="text-4xl md:text-5xl font-extrabold text-red-600 mb-4 leading-tight">
 						Grow with WEN!
 					</h2>
-					<p className="text-xl italic font-extrabold text-gray-600 mb-4">
+					<p className="text-lg italic font-extrabold text-gray-600 mb-4">
 						“TAKE THE FIRST STEP TOWARD COLLABORATIVE SUCCESS.”
 					</p>
 					<p className="text-base text-gray-700 mb-6 leading-relaxed">

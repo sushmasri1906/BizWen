@@ -4,13 +4,13 @@ import { FaCheckCircle } from "react-icons/fa";
 
 export default function WhyJoinWEN() {
 	return (
-		<section className="bg-gray-100 py-24 px-6 md:px-12 lg:px-24">
+		<section className="bg-red-600 py-10 px-6 md:px-12 lg:px-24 text-white">
 			<div className="max-w-7xl mx-auto">
 				<div className="text-center mb-14">
-					<h2 className="text-4xl md:text-5xl font-extrabold text-red-600 mb-4">
+					<h2 className="text-4xl md:text-5xl font-extrabold mb-4">
 						Why <span className="text-black">WEN?</span>
 					</h2>
-					<p className="text-lg md:text-xl text-black max-w-3xl mx-auto leading-relaxed">
+					<p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
 						Whether you&apos;re just starting out or scaling up, WEN empowers
 						women entrepreneurs with meaningful connections, hands-on support,
 						and unmatched visibility{" "}
@@ -20,11 +20,11 @@ export default function WhyJoinWEN() {
 
 				<div className="grid gap-12 md:grid-cols-2">
 					{/* Core Benefits */}
-					<div className="bg-red-200 p-8 rounded-3xl  ">
-						<h2 className="text-2xl font-bold text-red-600 mb-6">
+					<div className="bg-white p-8 rounded-3xl shadow-lg">
+						<h2 className="text-2xl font-bold text-black mb-6">
 							Core Benefits
 						</h2>
-						<ul className="space-y-5 text-base  leading-relaxed">
+						<ul className="space-y-5 text-base leading-relaxed text-black">
 							{[
 								{
 									title: "Zero Cost, Maximum Impact",
@@ -51,8 +51,8 @@ export default function WhyJoinWEN() {
 									desc: "Expand through city-wide chapters and global pitch clubs.",
 								},
 							].map((item, i) => (
-								<li key={i} className="flex items-start gap-3 text-black">
-									<FaCheckCircle className="text-red-500 mt-1 shrink-0" />
+								<li key={i} className="flex items-start gap-3">
+									<FaCheckCircle className="text-red-600 mt-1 shrink-0" />
 									<span>
 										<strong>{item.title}</strong>
 										<br />
@@ -64,11 +64,11 @@ export default function WhyJoinWEN() {
 					</div>
 
 					{/* Bonus Highlights */}
-					<div className="bg-red-200 p-8 rounded-3xl shadow-lg border border-red-200 hover:shadow-xl transition duration-300">
-						<h3 className="text-2xl font-bold text-red-600 mb-6">
+					<div className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition duration-300">
+						<h3 className="text-2xl font-bold text-black mb-6">
 							Bonus Highlights
 						</h3>
-						<ul className="space-y-5 text-base leading-relaxed">
+						<ul className="space-y-5 text-base leading-relaxed text-black">
 							{[
 								{
 									title: "Speaking Opportunities",
@@ -87,8 +87,8 @@ export default function WhyJoinWEN() {
 									desc: "Learn new skills via sessions from EduTech & Training teams.",
 								},
 							].map((item, i) => (
-								<li key={i} className="flex items-start gap-3 text-black">
-									<FaCheckCircle className="text-red-500 mt-1 shrink-0" />
+								<li key={i} className="flex items-start gap-3">
+									<FaCheckCircle className="text-red-600 mt-1 shrink-0" />
 									<span>
 										<strong>{item.title}</strong>
 										<br />
