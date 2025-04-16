@@ -54,7 +54,7 @@ const About = () => {
 						<span className="text-red-600">E</span>ntrepreneur <br />
 						<span className="text-red-600">N</span>etwork
 					</h2>
-					<p className="text-lg text-gray-700 dark:text-gray-300 mb-4 max-w-xl mx-auto md:mx-0">
+					<p className="text-lg text-black  mb-4 max-w-xl mx-auto md:mx-0">
 						WEN is a dynamic platform designed to empower entrepreneurs,
 						freelancers, startups, and digital professionals by providing a{" "}
 						<span className="font-semibold text-red-600">
@@ -62,11 +62,11 @@ const About = () => {
 						</span>
 						.
 					</p>
-					<p className="text-lg text-gray-700 dark:text-gray-300 mb-4 max-w-xl mx-auto md:mx-0">
+					<p className="text-lg text-black  dark:text-gray-300 mb-4 max-w-xl mx-auto md:mx-0">
 						Our mission is to foster meaningful connections, drive business
 						collaborations, and create exponential growth—together.
 					</p>
-					<p className="text-lg text-gray-700 dark:text-gray-300 max-w-xl mx-auto md:mx-0">
+					<p className="text-lg text-black  dark:text-gray-300 max-w-xl mx-auto md:mx-0">
 						At WEN, we believe that when individuals connect with purpose and
 						share referrals with trust, great businesses are built.
 					</p>
