@@ -50,7 +50,7 @@ export default function WhyJoinWEN() {
 							{[
 								"🎤 Speaking Opportunities — Showcase your expertise in workshops, panels, and guest sessions.",
 								"🏆 Recognition & Awards — Get acknowledged through monthly testimonials and shout-outs.",
-								"📣 Digital Visibility — Amplify your brand through WEN&apos;s social media & PR network.",
+								"📣 Digital Visibility — Amplify your brand through WEN's social media & PR network.",
 								"📈 Upskilling Platforms — Learn new skills via sessions from EduTech & Training teams.",
 							].map((text, i) => (
 								<li key={i} className="flex items-start gap-3 text-gray-700">
