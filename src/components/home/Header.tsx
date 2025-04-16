@@ -16,13 +16,13 @@ const Header = () => {
 					<span>Grow</span>
 				</p>
 
-				<div className="flex justify-center gap-4 flex-wrap">
+				<div className="flex justify-center gap-4  mt-10 flex-wrap">
 					<button className="bg-white text-red-600 px-6 py-2 rounded-full font-semibold hover:bg-red-100 transition ease-in-out duration-300">
 						Join the Network
 					</button>
 
 					<Link
-						href="https://chat.whatsapp.com/LTnBs4Y2Ge4Hsh0Pt6UitJ"
+						href="https://chat.whatsapp.com/GaTNqzuM2HuDqUpEWZdQzA"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full font-semibold transition ease-in-out duration-300">
