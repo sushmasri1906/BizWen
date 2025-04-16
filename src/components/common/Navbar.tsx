@@ -25,7 +25,7 @@ const Navbar = () => {
 					<Image
 						src="https://res.cloudinary.com/dsq4uyqbb/image/upload/v1744796359/Logos_For_We_Work_t24ef3.png"
 						alt="WEN Logo"
-						width={120}
+						width={160}
 						height={40}
 						className="object-contain w-32 h-auto"
 						priority
