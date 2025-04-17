@@ -10,6 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 const imageUrls = [
 	"https://res.cloudinary.com/dsq4uyqbb/image/upload/v1744350278/1_xowuqc.jpg",
 	"https://res.cloudinary.com/dsq4uyqbb/image/upload/v1744352459/4_z0s52v.jpg",
+	"https://res.cloudinary.com/dotuv0p3r/image/upload/v1744877292/14_vvamgj.png",
 	"https://res.cloudinary.com/dsq4uyqbb/image/upload/v1744350278/1_xowuqc.jpg",
 	"https://res.cloudinary.com/dsq4uyqbb/image/upload/v1744353073/5_f51qel.jpg",
 ];
