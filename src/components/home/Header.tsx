@@ -30,9 +30,11 @@ const Header = () => {
 						Open Group
 					</Link>
 
-					<button className="bg-white text-red-600 px-6 py-2 rounded-full font-semibold hover:bg-red-100 transition ease-in-out duration-300">
+					<Link
+						href="/events"
+						className="bg-white text-red-600 px-6 py-2 rounded-full font-semibold hover:bg-red-100 transition ease-in-out duration-300 flex items-center justify-center">
 						Next Meetings
-					</button>
+					</Link>
 				</div>
 			</div>
 		</section>
