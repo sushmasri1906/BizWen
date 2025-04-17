@@ -25,7 +25,7 @@ export default function EventsMain() {
 			description:
 				"A grand meet-up for WEN heads and active members to plan, discuss, and network.",
 			image:
-				"https://res.cloudinary.com/dotuv0p3r/image/upload/v1744869773/6_bumucz.jpg",
+				"https://res.cloudinary.com/dotuv0p3r/image/upload/v1744887792/wb2_kqjfal.jpg",
 		},
 		{
 			title: "WEN network Launch",
@@ -35,7 +35,7 @@ export default function EventsMain() {
 			description:
 				"Celebrating the official launch of the WEN network with powerful sessions and networking opportunities.",
 			image:
-				"https://res.cloudinary.com/dotuv0p3r/image/upload/v1744869762/7_bhhmvq.jpg",
+				"https://res.cloudinary.com/dotuv0p3r/image/upload/v1744887788/wb1_vlwdau.jpg",
 		},
 		{
 			title: "2025 Womens Day Celebrations",
@@ -45,7 +45,7 @@ export default function EventsMain() {
 			description:
 				"A vibrant celebration to honor women's achievements, strength, and unity across industries.",
 			image:
-				"https://res.cloudinary.com/dotuv0p3r/image/upload/v1744869781/5_dhduht.jpg",
+				"https://res.cloudinary.com/dotuv0p3r/image/upload/v1744887793/wb3_qhp6jo.jpg",
 		},
 	];
 
