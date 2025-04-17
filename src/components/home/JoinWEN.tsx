@@ -9,17 +9,17 @@ export default function JoinWEN() {
 					<h2 className="text-4xl md:text-5xl font-extrabold text-red-600 mb-4 leading-tight">
 						Grow with WEN!
 					</h2>
-					<p className="text-lg italic font-extrabold text-gray-600 mb-4">
+					<p className="text-lg italic font-extrabold text-black mb-4">
 						“TAKE THE FIRST STEP TOWARD COLLABORATIVE SUCCESS.”
 					</p>
-					<p className="text-base text-gray-700 mb-6 leading-relaxed">
+					<p className="text-base text-black mb-6 leading-relaxed">
 						At WEN, we believe in the power of connection. Whether you&apos;re
 						an entrepreneur, business owner, or creative professional,
 						there&apos;s a community waiting to support you. Be part of
 						something bigger.
 					</p>
 
-					<ul className="list-disc list-inside text-gray-700 mb-6 space-y-2 pl-1">
+					<ul className="list-disc list-inside text-black mb-6 space-y-2 pl-1">
 						<li>Introduce and promote your business to a wide network</li>
 						<li>Gain and share referrals within the community</li>
 						<li>Get featured through impactful presentations</li>

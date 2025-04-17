@@ -6,6 +6,7 @@ import { PiUsersThreeDuotone, PiStudentDuotone } from "react-icons/pi";
 import { HiOutlineHashtag } from "react-icons/hi2";
 import { MdOutlineEmojiObjects } from "react-icons/md";
 import { FaHandsHelping } from "react-icons/fa";
+import Link from "next/link";
 
 const MissionHeader = () => {
 	const missionItems = [
@@ -46,15 +47,23 @@ const MissionHeader = () => {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 1 }}
-			className="min-h-screen bg-gradient-to-br from-red-50 to-white py-30 px-6 text-gray-800">
+			className="min-h-screen bg-white py-30 px-6 text-gray-800">
 			<div className="max-w-6xl mx-auto">
 				<motion.h2
 					initial={{ y: -20, opacity: 0 }}
 					animate={{ y: 0, opacity: 1 }}
 					transition={{ duration: 0.8 }}
-					className="text-4xl md:text-5xl font-bold text-center text-red-600 mb-10">
+					className="text-4xl md:text-5xl font-bold text-center text-red-600 mb-4">
 					Our Mission at WEN
 				</motion.h2>
+
+				<div className="text-center mb-8">
+					<Link
+						href="/"
+						className="inline-block text-sm text-red-600 hover:text-red-800 font-medium transition-colors ">
+						← Back to Home
+					</Link>
+				</div>
 
 				<motion.p
 					initial={{ y: 10, opacity: 0 }}
