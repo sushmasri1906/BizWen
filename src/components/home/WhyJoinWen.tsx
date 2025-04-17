@@ -7,9 +7,7 @@ export default function WhyJoinWEN() {
 		<section className="bg-red-600 py-10 px-6 md:px-12 lg:px-24 text-white">
 			<div className="max-w-7xl mx-auto">
 				<div className="text-center mb-14">
-					<h2 className="text-4xl md:text-5xl font-extrabold mb-4">
-						Why <span className="text-black">WEN?</span>
-					</h2>
+					<h2 className="text-4xl md:text-5xl font-extrabold mb-4">Why WEN?</h2>
 					<p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
 						Whether you&apos;re just starting out or scaling up, WEN empowers
 						women entrepreneurs with meaningful connections, hands-on support,
