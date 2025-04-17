@@ -65,7 +65,7 @@ const About = () => {
 					</p>
 					<p className="text-lg text-black   mb-4 max-w-xl mx-auto md:mx-0">
 						Our mission is to foster meaningful connections, drive business
-						collaborations, and create exponential growth—together.
+						collaborations, and create exponential growth together.
 					</p>
 					<p className="text-lg text-black   max-w-xl mx-auto md:mx-0">
 						At WEN, we believe that when individuals connect with purpose and
