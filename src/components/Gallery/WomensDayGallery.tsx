@@ -20,7 +20,7 @@ const WomenDayGalleryImages = [
 
 const WomensDayGallery = () => {
 	return (
-		<section className="min-h-screen px-4 py-20 mt-10 bg-white dark:bg-black text-black dark:text-white">
+		<section className="min-h-screen px-4 py-20 mt-10 bg-white  text-black ">
 			<div className="max-w-7xl mx-auto">
 				<h1 className="text-4xl font-bold mb-12 text-center text-red-600">
 					Women&apos;s Day Event Gallery 2025

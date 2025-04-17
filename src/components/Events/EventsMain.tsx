@@ -29,7 +29,7 @@ export default function EventsMain() {
 					<h1 className="text-4xl font-extrabold text-red-600 mb-4">
 						WEN Events
 					</h1>
-					<p className="text-gray-700 mb-10 max-w-3xl">
+					<p className="text-black mb-10 max-w-3xl">
 						Explore impactful events that bring together ambitious women
 						entrepreneurs from across the globe. Every event fosters connection,
 						learning, and the celebration of success.
@@ -57,10 +57,10 @@ export default function EventsMain() {
 								<h2 className="text-xl font-bold text-red-600">
 									{event.title}
 								</h2>
-								<p className="text-sm text-gray-500 mt-1">
+								<p className="text-sm text-black mt-1">
 									{event.date} | {event.location}
 								</p>
-								<p className="mt-3 text-gray-700 text-sm flex-grow">
+								<p className="mt-3 text-black text-sm flex-grow">
 									{event.description}
 								</p>
 								<div className="mt-4">
@@ -75,7 +75,6 @@ export default function EventsMain() {
 					))}
 				</div>
 
-				{/* Awards Section */}
 				<motion.div
 					initial={{ opacity: 0, y: 40 }}
 					whileInView={{ opacity: 1, y: 0 }}
@@ -83,7 +82,7 @@ export default function EventsMain() {
 					viewport={{ once: true }}
 					className="mt-24 text-center">
 					<h2 className="text-2xl font-bold text-red-600 mb-3">WEN Awards</h2>
-					<p className="text-gray-700 max-w-2xl mx-auto mb-6">
+					<p className="text-black max-w-2xl mx-auto mb-6">
 						Honoring trailblazing women entrepreneurs who have redefined success
 						and inspired others through excellence, creativity, and impact.
 						Explore our award winners and their inspiring journeys.

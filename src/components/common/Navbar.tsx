@@ -29,7 +29,7 @@ const Navbar = () => {
 						height={40}
 						className="object-contain w-32 h-auto"
 						priority
-						quality={100} // Ensures high quality
+						quality={100}
 					/>
 				</Link>
 
@@ -59,7 +59,6 @@ const Navbar = () => {
 				</div>
 			</div>
 
-			{/* Mobile Dropdown Menu */}
 			{menuOpen && (
 				<motion.div
 					className="md:hidden bg-white px-6 pb-4 pt-2 shadow-md"

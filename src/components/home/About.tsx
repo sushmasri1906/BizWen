@@ -49,7 +49,7 @@ const About = () => {
 				</div>
 
 				<div className="w-full md:w-1/2 text-center md:text-left">
-					<h2 className="text-4xl md:text-5xl font-extrabold text-[#0B0C2A] dark:text-white leading-tight mb-6">
+					<h2 className="text-4xl md:text-5xl font-extrabold text-black leading-tight mb-6">
 						<span className="text-red-600">W</span>omen <br />
 						<span className="text-red-600">E</span>ntrepreneur <br />
 						<span className="text-red-600">N</span>etwork
@@ -62,11 +62,11 @@ const About = () => {
 						</span>
 						.
 					</p>
-					<p className="text-lg text-black  dark:text-gray-300 mb-4 max-w-xl mx-auto md:mx-0">
+					<p className="text-lg text-black   mb-4 max-w-xl mx-auto md:mx-0">
 						Our mission is to foster meaningful connections, drive business
 						collaborations, and create exponential growth—together.
 					</p>
-					<p className="text-lg text-black  dark:text-gray-300 max-w-xl mx-auto md:mx-0">
+					<p className="text-lg text-black   max-w-xl mx-auto md:mx-0">
 						At WEN, we believe that when individuals connect with purpose and
 						share referrals with trust, great businesses are built.
 					</p>

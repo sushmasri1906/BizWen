@@ -21,7 +21,7 @@ const awardImages = [
 
 const WomensDayAwards = () => {
 	return (
-		<section className="min-h-screen px-4 py-30 bg-white dark:bg-black text-black dark:text-white">
+		<section className="min-h-screen px-4 py-30 bg-white  text-black ">
 			<div className="max-w-7xl mx-auto">
 				<h1 className="text-4xl font-bold mb-10 text-center text-red-600">
 					Women&apos;s Day Awards 2025
@@ -35,7 +35,7 @@ const WomensDayAwards = () => {
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
 							transition={{ duration: 0.6, delay: index * 0.05 }}
-							className="bg-white dark:bg-neutral-900 overflow-hidden shadow-lg p-4 flex flex-col items-center">
+							className="bg-white  overflow-hidden shadow-lg p-4 flex flex-col items-center">
 							<Image
 								src={url.replace("/upload/", "/upload/f_auto,q_auto/")}
 								alt={`Award ${index + 1}`}

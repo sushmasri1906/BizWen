@@ -33,7 +33,6 @@ const Community = () => {
 				</Link>
 			</div>
 
-			{/* Decorative blurs */}
 			<div className="absolute inset-0 pointer-events-none">
 				<div className="absolute top-10 left-10 w-40 h-40 bg-red-100 rounded-full opacity-30 blur-3xl" />
 				<div className="absolute bottom-10 right-10 w-40 h-40 bg-red-100 rounded-full opacity-20 blur-2xl" />
