@@ -144,7 +144,7 @@ export default function EventsMain() {
 
 				<div>
 					<h2 className="text-2xl font-bold text-red-600 mb-6">
-						Finished Events
+						Previous Events
 					</h2>
 					<div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
 						{finishedEvents.map((event, index) =>
