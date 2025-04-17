@@ -112,6 +112,13 @@ export default function EventsMain() {
 					<h1 className="text-4xl font-extrabold text-red-600 mb-4">
 						WEN Events
 					</h1>
+
+					<Link
+						href="/"
+						className="inline-block mb-4 text-sm text-red-600 hover:text-red-800 font-medium transition-colors ">
+						← Back to Home
+					</Link>
+
 					<p className="text-black mb-10 max-w-3xl">
 						Explore impactful events that bring together ambitious women
 						entrepreneurs from across the globe.
