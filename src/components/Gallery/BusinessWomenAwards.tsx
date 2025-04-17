@@ -19,7 +19,9 @@ const BusinessWomenAwards = () => {
 		"https://res.cloudinary.com/dotuv0p3r/image/upload/v1744365839/9_by0o6y.jpg",
 	];
 
-	return <EventGallery title="Women's Day Awards 2025" images={awardImages} />;
+	return (
+		<EventGallery title="Business Women Awards 2025" images={awardImages} />
+	);
 };
 
 export default BusinessWomenAwards;
