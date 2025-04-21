@@ -60,7 +60,7 @@ export default function WhyJoinWEN() {
 						</ul>
 					</div>
 
-					<div className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition duration-300">
+					<div className="bg-white p-8  shadow-lg hover:shadow-xl transition duration-300">
 						<h3 className="text-2xl font-bold text-black mb-6">
 							Bonus Highlights
 						</h3>
