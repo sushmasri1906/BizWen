@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRight, FaShareAlt } from "react-icons/fa";
@@ -75,15 +73,8 @@ export default function EventsMain() {
 		index: Key | null | undefined,
 		isFinished = false
 	) => (
-		<motion.div
+		<div
 			key={index}
-			initial={{ opacity: 0, y: 20 }}
-			whileInView={{ opacity: 1, y: 0 }}
-			transition={{
-				duration: 0.5,
-				delay: typeof index === "number" ? index * 0.2 : 0,
-			}}
-			viewport={{ once: true }}
 			className="bg-white border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden group flex flex-col">
 			{/* Event Image */}
 			<div className="relative w-full h-64 bg-white flex items-center justify-center">
@@ -198,31 +189,29 @@ export default function EventsMain() {
 					</div>
 				)}
 
-				
-				<div className="mt-4">
-					<a
-						href={`https://wa.me/?text=${encodeURIComponent(
-							`Check out the event details: https://www.bizwen.site/events`
-						)}`}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="inline-flex items-center text-sm text-green-600 hover:text-green-800 font-medium transition-colors">
-						<FaShareAlt className="mr-1" /> Share on WhatsApp
-					</a>
-				</div>
+				{/* Share on WhatsApp (only for Upcoming Events) */}
+				{!isFinished && (
+					<div className="mt-4">
+						<a
+							href={`https://wa.me/?text=${encodeURIComponent(
+								`Check out the event details: https://www.bizwen.site/events`
+							)}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="inline-flex items-center text-sm text-green-600 hover:text-green-800 font-medium transition-colors">
+							<FaShareAlt className="mr-1" /> Share on WhatsApp
+						</a>
+					</div>
+				)}
 			</div>
-		</motion.div>
+		</div>
 	);
 
 	return (
 		<section className="relative py-[120px] min-h-[calc(100vh-80px)] w-full bg-gradient-to-br from-gray-50 via-white to-red-50 text-black px-4 sm:px-6 lg:px-8">
 			<div className="max-w-7xl mx-auto">
 				{/* Page Header */}
-				<motion.div
-					initial={{ opacity: 0, y: 30 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.6 }}
-					viewport={{ once: true }}>
+				<div>
 					<h1 className="text-4xl font-extrabold text-red-600 mb-4">
 						WEN Events
 					</h1>
@@ -235,7 +224,7 @@ export default function EventsMain() {
 						Explore impactful events that bring together ambitious women
 						entrepreneurs from across the globe.
 					</p>
-				</motion.div>
+				</div>
 
 				{/* Upcoming Events */}
 				<div className="mb-16">
