@@ -100,7 +100,7 @@ export default function EventsMain() {
 
 				{/* Badge for Upcoming Events */}
 				{!isFinished && (
-					<span className="absolute top-4 left-4 px-3 py-1 bg-red-600 text-white font-semibold text-xs rounded-full shadow-md">
+					<span className="absolute top-6 left-4 px-3 py-1 bg-red-600 text-white font-semibold text-xs rounded-full shadow-md">
 						Upcoming
 					</span>
 				)}
