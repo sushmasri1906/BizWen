@@ -1,10 +1,10 @@
-import GalleryHome from "@/components/Gallery/GalleryHome";
+import WomensDayGallery from "@/components/Gallery/WomensDayGallery";
 import React from "react";
 
 function page() {
 	return (
 		<>
-			<GalleryHome />
+			<WomensDayGallery />
 		</>
 	);
 }

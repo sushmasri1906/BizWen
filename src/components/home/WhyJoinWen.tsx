@@ -17,7 +17,6 @@ export default function WhyJoinWEN() {
 				</div>
 
 				<div className="grid gap-12 md:grid-cols-2">
-					{/* Core Benefits */}
 					<div className="bg-white p-8 rounded-3xl shadow-lg">
 						<h2 className="text-2xl font-bold text-black mb-6">
 							Core Benefits
@@ -61,7 +60,6 @@ export default function WhyJoinWEN() {
 						</ul>
 					</div>
 
-					{/* Bonus Highlights */}
 					<div className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition duration-300">
 						<h3 className="text-2xl font-bold text-black mb-6">
 							Bonus Highlights
