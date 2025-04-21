@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRight, FaShareAlt } from "react-icons/fa";
@@ -20,16 +21,50 @@ type Event = {
 	paymentLink?: string;
 };
 
+const formatDate = (dateString: string) => {
+	const date = new Date(dateString);
+	if (isNaN(date.getTime())) return "Invalid Date";
+
+	const options: Intl.DateTimeFormatOptions = {
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	};
+
+	return date.toLocaleDateString("en-US", options);
+};
+
+const calculateRemainingTime = (deadline: string) => {
+	const deadlineDate = new Date(deadline);
+	if (isNaN(deadlineDate.getTime())) return "Invalid Date";
+
+	const now = new Date().getTime();
+	const timeDifference = deadlineDate.getTime() - now;
+
+	if (timeDifference <= 0) {
+		return "Registration Closed";
+	}
+
+	const days = Math.floor(timeDifference / (1000 * 3600 * 24));
+	const hours = Math.floor(
+		(timeDifference % (1000 * 3600 * 24)) / (1000 * 3600)
+	);
+	const minutes = Math.floor((timeDifference % (1000 * 3600)) / (1000 * 60));
+	const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+	return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+};
+
 export default function EventsMain() {
 	const upcomingEvents: Event[] = [
 		{
-			title: "WEN,Hyderabad Chapter Meet",
+			title: "WEN, Hyderabad Chapter Meet",
 			slug: "WENNetworkMeet",
 			date: "May 1st, 2025, 7:30 AM",
 			location: "Pincode Hotels, Secunderabad",
 			price: "₹499",
 			contact: "8121212117",
-			registrationDeadline: "April 29th",
+			registrationDeadline: "2025-04-29T23:59:59", // ISO format
 			extraInfo: "Please bring 50 business cards.",
 			image:
 				"https://res.cloudinary.com/dotuv0p3r/image/upload/v1745225791/w1_je1uvv.jpg",
@@ -49,7 +84,7 @@ export default function EventsMain() {
 				"https://res.cloudinary.com/dotuv0p3r/image/upload/v1744887792/wb2_kqjfal.jpg",
 		},
 		{
-			title: "WEN network Launch",
+			title: "WEN Network Launch",
 			slug: "WENNetworkLaunch",
 			date: "March 8th, 2025",
 			location: "Hyderabad, India",
@@ -59,7 +94,7 @@ export default function EventsMain() {
 				"https://res.cloudinary.com/dotuv0p3r/image/upload/v1744887788/wb1_vlwdau.jpg",
 		},
 		{
-			title: "2025 Womens Day Celebrations",
+			title: "2025 Women's Day Celebrations",
 			slug: "WomensDayGallery",
 			date: "March 8th, 2025",
 			location: "Hyderabad, India",
@@ -69,6 +104,27 @@ export default function EventsMain() {
 				"https://res.cloudinary.com/dotuv0p3r/image/upload/v1744887793/wb3_qhp6jo.jpg",
 		},
 	];
+
+	const [remainingTime, setRemainingTime] = useState<string | null>(null);
+
+	useEffect(() => {
+		// Function to update the remaining time
+		const updateRemainingTime = () => {
+			const event = upcomingEvents[0]; // Assuming we're showing only the first event for now
+			if (event.registrationDeadline) {
+				setRemainingTime(calculateRemainingTime(event.registrationDeadline));
+			}
+		};
+
+		// Update every second (1000ms)
+		const timerId = setInterval(updateRemainingTime, 1000);
+
+		// Run initial calculation immediately
+		updateRemainingTime();
+
+		// Cleanup timer on unmount
+		return () => clearInterval(timerId);
+	}, [upcomingEvents]);
 
 	const renderEventCard = (
 		event: Event,
@@ -115,8 +171,30 @@ export default function EventsMain() {
 					{event.date} | {event.location}
 				</p>
 
+				{/* Countdown Timer and Last Registration Date */}
+				{!isFinished && event.registrationDeadline && (
+					<div className="mt-3 text-sm text-black font-semibold">
+						<div>
+							Registration Deadline:{" "}
+							<span className="text-red-600">
+								{formatDate(event.registrationDeadline)}
+							</span>
+						</div>
+						<div>
+							Time Left:{" "}
+							<span className="text-red-600">
+								{remainingTime ?? "Loading..."}
+							</span>
+						</div>
+					</div>
+				)}
+
 				{/* Event Details */}
-				{!isFinished ? (
+				{isFinished ? (
+					<p className="mt-3 text-sm text-black flex-grow">
+						{event.description || "Stay tuned for more details."}
+					</p>
+				) : (
 					<>
 						<ul className="mt-3 text-sm text-black flex-grow space-y-4">
 							{/* Meeting Fee */}
@@ -126,16 +204,6 @@ export default function EventsMain() {
 										Meeting Fee:
 									</strong>
 									<p>{event.price}</p>
-								</li>
-							)}
-
-							{/* Registration Deadline */}
-							{event.registrationDeadline && (
-								<li className="p-4 bg-gray-100 rounded-lg shadow-md">
-									<strong className="text-sm text-gray-800 font-semibold">
-										Registrations close:
-									</strong>
-									<p>{event.registrationDeadline}</p>
 								</li>
 							)}
 
@@ -181,10 +249,6 @@ export default function EventsMain() {
 							</div>
 						)}
 					</>
-				) : (
-					<p className="mt-3 text-sm text-black flex-grow">
-						{event.description || "Stay tuned for more details."}
-					</p>
 				)}
 
 				{/* Gallery Link for Finished Events */}
@@ -219,46 +283,27 @@ export default function EventsMain() {
 			<div className="max-w-7xl mx-auto">
 				{/* Page Header */}
 				<motion.div
-					initial={{ opacity: 0, y: 30 }}
+					initial={{ opacity: 0, y: -40 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.6 }}
-					viewport={{ once: true }}>
-					<h1 className="text-4xl font-extrabold text-red-600 mb-4">
-						WEN Events
-					</h1>
-					<Link
-						href="/"
-						className="inline-block mb-4 text-sm text-red-600 hover:text-red-800 font-medium transition-colors">
-						← Back to Home
-					</Link>
-					<p className="text-black mb-10 max-w-3xl">
-						Explore impactful events that bring together ambitious women
-						entrepreneurs from across the globe.
-					</p>
+					viewport={{ once: true }}
+					className="text-center space-y-6">
+					<h2 className="text-3xl sm:text-4xl font-bold leading-tight text-gray-800">
+						Upcoming Events
+					</h2>
 				</motion.div>
 
 				{/* Upcoming Events */}
-				<div className="mb-16">
-					<h2 className="text-2xl font-bold text-red-600 mb-6">
-						Upcoming Events
-					</h2>
-					{upcomingEvents.length === 0 ? (
-						<p className="text-sm text-black">No upcoming events available.</p>
-					) : (
-						<div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-							{upcomingEvents.map((event, index) =>
-								renderEventCard(event, index)
-							)}
-						</div>
-					)}
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+					{upcomingEvents.map((event, index) => renderEventCard(event, index))}
 				</div>
 
-				{/* Finished Events */}
-				<div>
-					<h2 className="text-2xl font-bold text-red-600 mb-6">
-						Previous Events
-					</h2>
-					<div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+				{/* Past Events */}
+				<div className="mt-16">
+					<h3 className="text-3xl sm:text-4xl font-bold leading-tight text-gray-800">
+						Past Events
+					</h3>
+					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
 						{finishedEvents.map((event, index) =>
 							renderEventCard(event, index, true)
 						)}
