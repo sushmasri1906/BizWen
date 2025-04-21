@@ -112,7 +112,8 @@ export default function EventsMain() {
 		const updateRemainingTime = () => {
 			const event = upcomingEvents[0]; // Assuming we're showing only the first event for now
 			if (event.registrationDeadline) {
-				setRemainingTime(calculateRemainingTime(event.registrationDeadline));
+				const timeLeft = calculateRemainingTime(event.registrationDeadline);
+				setRemainingTime(timeLeft);
 			}
 		};
 
@@ -196,8 +197,8 @@ export default function EventsMain() {
 					</p>
 				) : (
 					<>
+						{/* Event Price, Extra Info, and Contact */}
 						<ul className="mt-3 text-sm text-black flex-grow space-y-4">
-							{/* Meeting Fee */}
 							{event.price && (
 								<li className="p-4 bg-gray-100 rounded-lg shadow-md">
 									<strong className="text-sm text-gray-800 font-semibold">
@@ -207,7 +208,6 @@ export default function EventsMain() {
 								</li>
 							)}
 
-							{/* Extra Info */}
 							{event.extraInfo && (
 								<li className="p-4 bg-gray-100 rounded-lg shadow-md">
 									<strong className="text-sm text-gray-800 font-semibold">
@@ -217,7 +217,6 @@ export default function EventsMain() {
 								</li>
 							)}
 
-							{/* Contact */}
 							{event.contact && (
 								<li className="p-4 bg-gray-100 rounded-lg shadow-md">
 									<strong className="text-sm text-gray-800 font-semibold">
@@ -281,27 +280,40 @@ export default function EventsMain() {
 	return (
 		<section className="relative py-[120px] min-h-[calc(100vh-80px)] w-full bg-gradient-to-br from-gray-50 via-white to-red-50 text-black px-4 sm:px-6 lg:px-8">
 			<div className="max-w-7xl mx-auto">
-				{/* Page Header */}
+				{/* Top Section with Title and Back Button */}
+				<div className=" mb-12">
+					<h1 className="text-4xl font-extrabold text-red-600 mb-4">
+						WEN Events
+					</h1>
+					<Link href="/" className="text-red-600 text-sm  ">
+						← Back to Home
+					</Link>
+					<h3 className="text-md sm:text-lg  leading-tight text-black mt-4">
+						Explore impactful events that bring together ambitious women
+						entrepreneurs from across the globe.
+					</h3>
+				</div>
+
+				{/* Upcoming Events */}
 				<motion.div
 					initial={{ opacity: 0, y: -40 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.6 }}
 					viewport={{ once: true }}
-					className="text-center space-y-6">
-					<h2 className="text-3xl sm:text-4xl font-bold leading-tight text-gray-800">
+					className=" space-y-6">
+					<h2 className="text-3xl sm:text-4xl font-bold leading-tight text-red-600">
 						Upcoming Events
 					</h2>
 				</motion.div>
 
-				{/* Upcoming Events */}
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
 					{upcomingEvents.map((event, index) => renderEventCard(event, index))}
 				</div>
 
 				{/* Past Events */}
 				<div className="mt-16">
-					<h3 className="text-3xl sm:text-4xl font-bold leading-tight text-gray-800">
-						Past Events
+					<h3 className="text-3xl sm:text-4xl font-bold leading-tight text-red-600">
+						Previous Events
 					</h3>
 					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
 						{finishedEvents.map((event, index) =>
