@@ -31,7 +31,7 @@ export default function EventsMain() {
 			registrationDeadline: "April 29",
 			extraInfo: "Please bring 50 business cards.",
 			image:
-				"https://res.cloudinary.com/dotuv0p3r/image/upload/v1745215521/WEN_Awards_mkzpcf.png",
+				"https://res.cloudinary.com/dotuv0p3r/image/upload/v1745217322/w1_pvsb1q.jpg",
 		},
 	];
 
