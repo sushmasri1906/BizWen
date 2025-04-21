@@ -59,7 +59,7 @@ export default function EventsMain() {
 		{
 			title: "2025 Womens Day Celebrations",
 			slug: "WomensDayGallery",
-			date: "March 8th, 2026",
+			date: "March 8th, 2025",
 			location: "Hyderabad, India",
 			description:
 				"A vibrant celebration to honor women's achievements, strength, and unity across industries.",
