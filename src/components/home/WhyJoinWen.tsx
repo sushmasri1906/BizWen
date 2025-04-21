@@ -17,7 +17,7 @@ export default function WhyJoinWEN() {
 				</div>
 
 				<div className="grid gap-12 md:grid-cols-2">
-					<div className="bg-white p-8 rounded-3xl shadow-lg">
+					<div className="bg-white p-8 shadow-lg">
 						<h2 className="text-2xl font-bold text-black mb-6">
 							Core Benefits
 						</h2>
