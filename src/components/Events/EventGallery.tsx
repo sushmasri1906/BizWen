@@ -62,7 +62,7 @@ const EventGallery = ({ title, description, images }: GalleryProps) => {
 						<div
 							key={index}
 							onClick={() => setSelectedIndex(index)}
-							className="cursor-pointer overflow-hidden shadow-md rounded-lg transition-transform hover:scale-105 duration-200">
+							className="cursor-pointer overflow-hidden shadow-md transition-transform hover:scale-105 duration-200">
 							<Image
 								src={url.replace("/upload/", "/upload/f_auto,q_auto/")}
 								alt={`Image ${index + 1}`}

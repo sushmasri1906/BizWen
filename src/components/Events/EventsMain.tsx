@@ -11,11 +11,30 @@ type Event = {
 	slug: string;
 	date: string;
 	location: string;
-	description: string;
+	description?: string;
 	image?: string;
+	price?: string;
+	contact?: string;
+	registrationDeadline?: string;
+	extraInfo?: string;
 };
 
 export default function EventsMain() {
+	const upcomingEvents: Event[] = [
+		{
+			title: "WEN Network Meet",
+			slug: "WENNetworkMeet",
+			date: "May 1st, 2025,7:30 Am",
+			location: "Pincode Hotels, Secunderabad",
+			price: "₹499",
+			contact: "8121212117",
+			registrationDeadline: "April 29",
+			extraInfo: "Please bring 50 business cards.",
+			image:
+				"https://res.cloudinary.com/dotuv0p3r/image/upload/v1745215521/WEN_Awards_mkzpcf.png",
+		},
+	];
+
 	const finishedEvents: Event[] = [
 		{
 			title: "Business Women Awards",
@@ -49,8 +68,6 @@ export default function EventsMain() {
 		},
 	];
 
-	const upcomingEvents: Event[] = [];
-
 	const renderEventCard = (
 		event: Event,
 		index: Key | null | undefined,
@@ -66,28 +83,85 @@ export default function EventsMain() {
 			}}
 			viewport={{ once: true }}
 			className="bg-white border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden group flex flex-col">
-			<div className="relative w-full h-56">
+			{/* Event Image */}
+			<div className="relative w-full h-64 bg-white flex items-center justify-center">
 				{event.image ? (
 					<Image
 						src={event.image}
 						alt={event.title}
 						fill
-						className="object-cover group-hover:scale-105 transition-transform duration-300"
+						className="object-contain group-hover:scale-105 transition-transform duration-300"
 					/>
 				) : (
 					<div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-500 text-sm">
 						No Image Available
 					</div>
 				)}
+
+				{/* Badge for Upcoming Events */}
+				{!isFinished && (
+					<span className="absolute top-4 left-4 px-3 py-1 bg-red-600 text-white font-semibold text-xs rounded-full shadow-md">
+						Upcoming
+					</span>
+				)}
 			</div>
+
+			{/* Event Content */}
 			<div className="p-5 flex flex-col flex-grow">
 				<h2 className="text-lg font-bold text-red-600">{event.title}</h2>
 				<p className="text-sm text-black mt-1">
 					{event.date} | {event.location}
 				</p>
-				<p className="mt-3 text-sm text-black flex-grow">
-					{event.description || "Stay tuned for more details."}
-				</p>
+
+				{/* Event Details */}
+				{!isFinished ? (
+					<ul className="mt-3 text-sm text-black flex-grow space-y-4">
+						{/* Meeting Fee */}
+						{event.price && (
+							<li className="p-4 bg-gray-100 rounded-lg shadow-md">
+								<strong className="text-lg text-red-600">Meeting Fee:</strong>
+								<p>{event.price}</p>
+							</li>
+						)}
+
+						{/* Registration Deadline */}
+						{event.registrationDeadline && (
+							<li className="p-4 bg-gray-100 rounded-lg shadow-md">
+								<strong className="text-lg text-red-600">
+									Registrations close:
+								</strong>
+								<p>{event.registrationDeadline}</p>
+							</li>
+						)}
+
+						{/* Extra Info */}
+						{event.extraInfo && (
+							<li className="p-4 bg-gray-100 rounded-lg shadow-md">
+								<strong className="text-lg text-red-600">Note:</strong>
+								<p>{event.extraInfo}</p>
+							</li>
+						)}
+
+						{/* Contact Section with Phone Number */}
+						{event.contact && (
+							<li className="p-4 bg-gray-100 rounded-lg shadow-md">
+								<strong className="text-lg text-red-600">Contact:</strong>
+								<p>
+									<a
+										href={`tel:${event.contact.split(" ")[1]}`} // Extracting number from "Name at 1234567890"
+										className="text-blue-600 hover:text-blue-800 transition-colors">
+										{event.contact}
+									</a>
+								</p>
+							</li>
+						)}
+					</ul>
+				) : (
+					<p className="mt-3 text-sm text-black flex-grow">
+						{event.description || "Stay tuned for more details."}
+					</p>
+				)}
+
 				{isFinished && (
 					<div className="mt-4">
 						<Link
@@ -104,6 +178,7 @@ export default function EventsMain() {
 	return (
 		<section className="relative py-[120px] min-h-[calc(100vh-80px)] w-full bg-gradient-to-br from-gray-50 via-white to-red-50 text-black px-4 sm:px-6 lg:px-8">
 			<div className="max-w-7xl mx-auto">
+				{/* Page Header */}
 				<motion.div
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
@@ -112,13 +187,11 @@ export default function EventsMain() {
 					<h1 className="text-4xl font-extrabold text-red-600 mb-4">
 						WEN Events
 					</h1>
-
 					<Link
 						href="/"
-						className="inline-block mb-4 text-sm text-red-600 hover:text-red-800 font-medium transition-colors ">
+						className="inline-block mb-4 text-sm text-red-600 hover:text-red-800 font-medium transition-colors">
 						← Back to Home
 					</Link>
-
 					<p className="text-black mb-10 max-w-3xl">
 						Explore impactful events that bring together ambitious women
 						entrepreneurs from across the globe.
@@ -130,12 +203,10 @@ export default function EventsMain() {
 						Upcoming Events
 					</h2>
 					{upcomingEvents.length === 0 ? (
-						<p className="text-black text-center text-base italic">
-							No Upcoming Events
-						</p>
+						<p className="text-sm text-black">No upcoming events available.</p>
 					) : (
 						<div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-							{upcomingEvents.map((event: Event, index: number) =>
+							{upcomingEvents.map((event, index) =>
 								renderEventCard(event, index)
 							)}
 						</div>
