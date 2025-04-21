@@ -224,7 +224,9 @@ export default function EventsMain() {
 									</strong>
 									<p className="mt-1 text-sm text-gray-800">
 										<span className="font-medium">Aparna Kokala</span>{" "}
-										<span className="text-gray-600">for LED presentations</span>{" "}
+										<span className="text-gray-600">
+											for LED presentation slots
+										</span>{" "}
 										<a
 											href={`tel:${event.contact}`}
 											className="text-blue-600 hover:text-blue-800 transition-colors">
