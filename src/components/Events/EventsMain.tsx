@@ -17,21 +17,23 @@ type Event = {
 	contact?: string;
 	registrationDeadline?: string;
 	extraInfo?: string;
+	paymentLink?: string;
 };
 
 export default function EventsMain() {
 	const upcomingEvents: Event[] = [
 		{
-			title: "WEN Network Meet",
+			title: "WEN,Hyderabad Chapter Meet",
 			slug: "WENNetworkMeet",
-			date: "May 1st, 2025,7:30 Am",
+			date: "May 1st, 2025, 7:30 AM",
 			location: "Pincode Hotels, Secunderabad",
 			price: "₹499",
 			contact: "8121212117",
-			registrationDeadline: "April 29",
+			registrationDeadline: "April 29th",
 			extraInfo: "Please bring 50 business cards.",
 			image:
-				"https://res.cloudinary.com/dotuv0p3r/image/upload/v1745217322/w1_pvsb1q.jpg",
+				"https://res.cloudinary.com/dotuv0p3r/image/upload/v1745225791/w1_je1uvv.jpg",
+			paymentLink: "https://payments.cashfree.com/forms/WenMay",
 		},
 	];
 
@@ -100,7 +102,7 @@ export default function EventsMain() {
 
 				{/* Badge for Upcoming Events */}
 				{!isFinished && (
-					<span className="absolute top-6 left-4 px-3 py-1 bg-red-600 text-white font-semibold text-xs rounded-full shadow-md">
+					<span className="absolute top-10 left-4 px-3 py-1 bg-red-600 text-white font-semibold text-xs rounded-full shadow-md">
 						Upcoming
 					</span>
 				)}
@@ -115,53 +117,77 @@ export default function EventsMain() {
 
 				{/* Event Details */}
 				{!isFinished ? (
-					<ul className="mt-3 text-sm text-black flex-grow space-y-4">
-						{/* Meeting Fee */}
-						{event.price && (
-							<li className="p-4 bg-gray-100 rounded-lg shadow-md">
-								<strong className="text-lg text-red-600">Meeting Fee:</strong>
-								<p>{event.price}</p>
-							</li>
-						)}
+					<>
+						<ul className="mt-3 text-sm text-black flex-grow space-y-4">
+							{/* Meeting Fee */}
+							{event.price && (
+								<li className="p-4 bg-gray-100 rounded-lg shadow-md">
+									<strong className="text-sm text-gray-800 font-semibold">
+										Meeting Fee:
+									</strong>
+									<p>{event.price}</p>
+								</li>
+							)}
 
-						{/* Registration Deadline */}
-						{event.registrationDeadline && (
-							<li className="p-4 bg-gray-100 rounded-lg shadow-md">
-								<strong className="text-lg text-red-600">
-									Registrations close:
-								</strong>
-								<p>{event.registrationDeadline}</p>
-							</li>
-						)}
+							{/* Registration Deadline */}
+							{event.registrationDeadline && (
+								<li className="p-4 bg-gray-100 rounded-lg shadow-md">
+									<strong className="text-sm text-gray-800 font-semibold">
+										Registrations close:
+									</strong>
+									<p>{event.registrationDeadline}</p>
+								</li>
+							)}
 
-						{/* Extra Info */}
-						{event.extraInfo && (
-							<li className="p-4 bg-gray-100 rounded-lg shadow-md">
-								<strong className="text-lg text-red-600">Note:</strong>
-								<p>{event.extraInfo}</p>
-							</li>
-						)}
+							{/* Extra Info */}
+							{event.extraInfo && (
+								<li className="p-4 bg-gray-100 rounded-lg shadow-md">
+									<strong className="text-sm text-gray-800 font-semibold">
+										Note:
+									</strong>
+									<p>{event.extraInfo}</p>
+								</li>
+							)}
 
-						{/* Contact Section with Phone Number */}
-						{event.contact && (
-							<li className="p-4 bg-gray-100 rounded-lg shadow-md">
-								<strong className="text-lg text-red-600">Contact:</strong>
-								<p>
-									<a
-										href={`tel:${event.contact.split(" ")[1]}`} // Extracting number from "Name at 1234567890"
-										className="text-blue-600 hover:text-blue-800 transition-colors">
-										{event.contact}
-									</a>
-								</p>
-							</li>
+							{/* Contact */}
+							{event.contact && (
+								<li className="p-4 bg-gray-100 rounded-lg shadow-md">
+									<strong className="text-sm text-gray-800 font-semibold">
+										Contact:
+									</strong>
+									<p className="mt-1 text-sm text-gray-800">
+										<span className="font-medium">Aparna Kokala</span>{" "}
+										<span className="text-gray-600">for LED presentations</span>{" "}
+										<a
+											href={`tel:${event.contact}`}
+											className="text-blue-600 hover:text-blue-800 transition-colors">
+											{event.contact}
+										</a>
+									</p>
+								</li>
+							)}
+						</ul>
+
+						{/* Payment Button */}
+						{event.paymentLink && (
+							<div className="mt-4">
+								<a
+									href={event.paymentLink}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="inline-block bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition">
+									Book Your Slot Online
+								</a>
+							</div>
 						)}
-					</ul>
+					</>
 				) : (
 					<p className="mt-3 text-sm text-black flex-grow">
 						{event.description || "Stay tuned for more details."}
 					</p>
 				)}
 
+				{/* Gallery Link for Finished Events */}
 				{isFinished && (
 					<div className="mt-4">
 						<Link
@@ -198,6 +224,7 @@ export default function EventsMain() {
 					</p>
 				</motion.div>
 
+				{/* Upcoming Events */}
 				<div className="mb-16">
 					<h2 className="text-2xl font-bold text-red-600 mb-6">
 						Upcoming Events
@@ -213,6 +240,7 @@ export default function EventsMain() {
 					)}
 				</div>
 
+				{/* Finished Events */}
 				<div>
 					<h2 className="text-2xl font-bold text-red-600 mb-6">
 						Previous Events
