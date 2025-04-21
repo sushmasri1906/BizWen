@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaShareAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Key } from "react";
 
@@ -197,6 +197,19 @@ export default function EventsMain() {
 						</Link>
 					</div>
 				)}
+
+				
+				<div className="mt-4">
+					<a
+						href={`https://wa.me/?text=${encodeURIComponent(
+							`Check out the event details: https://www.bizwen.site/events`
+						)}`}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="inline-flex items-center text-sm text-green-600 hover:text-green-800 font-medium transition-colors">
+						<FaShareAlt className="mr-1" /> Share on WhatsApp
+					</a>
+				</div>
 			</div>
 		</motion.div>
 	);
