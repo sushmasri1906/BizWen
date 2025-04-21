@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRight, FaShareAlt } from "react-icons/fa";
-import { motion } from "framer-motion";
+
 import { Key } from "react";
 
 type Event = {
