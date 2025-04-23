@@ -11,8 +11,9 @@ function HomePage() {
 		<>
 			<Header />
 			<About />
-			<JoinWEN />
 			<WhyJoinWEN />
+			<JoinWEN />
+			
 			<Community />
 			<Hero />
 		</>

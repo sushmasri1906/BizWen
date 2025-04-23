@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Community = () => {
 	return (
-		<section className="relative bg-gradient-to-br from-white via-gray-50 to-red-50 text-black py-10 px-6 md:px-12 lg:px-24">
+		<section className="relative bg-gray-100 text-black pb-10 px-6 md:px-12 lg:px-24">
 			<div className="max-w-5xl mx-auto text-center z-10 relative">
 				<div className="">
 					<Image
@@ -28,7 +28,7 @@ const Community = () => {
 				</p>
 				<Link
 					href="#join"
-					className="inline-flex items-center justify-center bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg shadow hover:bg-red-700 transition duration-300">
+					className="inline-flex items-center justify-center bg-red-600 text-white px-6 py-3 font-semibold text-lg shadow-lg hover:bg-red-700 transition duration-300 border-2 border-transparent hover:border-red-600">
 					Join the WEN Community <FaArrowRight className="ml-3" />
 				</Link>
 			</div>

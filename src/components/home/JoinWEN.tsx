@@ -29,7 +29,7 @@ export default function JoinWEN() {
 					<Link
 						href="https://your-link-here.com"
 						target="_blank"
-						className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold text-lg px-6 py-3 rounded-full shadow-lg transition duration-300">
+						className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold text-base px-4 py-2 rounded-none shadow-lg transition duration-300">
 						Join the Network
 					</Link>
 				</div>
