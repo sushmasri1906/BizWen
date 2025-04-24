@@ -10,7 +10,7 @@ export default function WhyJoinWEN() {
 				{/* Title and Description with Animation */}
 				<div className="text-center mb-14">
 					<motion.h2
-						className="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900"
+						className="text-4xl md:text-5xl font-extrabold mb-4 text-red-600"
 						initial={{ opacity: 0, y: -50 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 1 }}>
