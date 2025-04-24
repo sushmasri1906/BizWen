@@ -11,8 +11,8 @@ const Community = () => {
 					<Image
 						src="https://res.cloudinary.com/dsq4uyqbb/image/upload/v1744801279/Untitled_Your_Story_epzbc9.png"
 						alt="WEN Logo"
-						width={400}
-						height={400}
+						width={300}
+						height={300}
 						className="mx-auto object-contain"
 					/>
 				</div>
