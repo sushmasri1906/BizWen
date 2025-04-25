@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRight, FaShareAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { Key } from "react";
+import { FiPhoneCall } from "react-icons/fi";
 
 type Event = {
 	title: string;
@@ -56,21 +56,24 @@ const calculateRemainingTime = (deadline: string) => {
 };
 
 export default function EventsMain() {
-	const upcomingEvents: Event[] = [
-		{
-			title: "WEN, Hyderabad Chapter Meet",
-			slug: "WENNetworkMeet",
-			date: "May 1st, 2025, 7:30 AM",
-			location: "Pincode Hotels, Secunderabad",
-			price: "₹499",
-			contact: "8121212117",
-			registrationDeadline: "2025-04-29T23:59:59", // ISO format
-			extraInfo: "Please bring 50 business cards.",
-			image:
-				"https://res.cloudinary.com/dotuv0p3r/image/upload/v1745225791/w1_je1uvv.jpg",
-			paymentLink: "https://payments.cashfree.com/forms/WenMay",
-		},
-	];
+	const upcomingEvents = useMemo<Event[]>(
+		() => [
+			{
+				title: "WEN, Hyderabad Chapter Meet",
+				slug: "WENNetworkMeet",
+				date: "May 1st, 2025, 7:30 AM",
+				location: "Pincode Hotels, Secunderabad",
+				price: "₹499",
+				contact: "8121212117",
+				registrationDeadline: "2025-04-29T23:59:59",
+				extraInfo: "Please bring 50 business cards.",
+				image:
+					"https://res.cloudinary.com/dotuv0p3r/image/upload/v1745225791/w1_je1uvv.jpg",
+				paymentLink: "https://payments.cashfree.com/forms/WenMay",
+			},
+		],
+		[]
+	);
 
 	const finishedEvents: Event[] = [
 		{
@@ -108,41 +111,26 @@ export default function EventsMain() {
 	const [remainingTime, setRemainingTime] = useState<string | null>(null);
 
 	useEffect(() => {
-		// Function to update the remaining time
 		const updateRemainingTime = () => {
-			const event = upcomingEvents[0]; // Assuming we're showing only the first event for now
-			if (event.registrationDeadline) {
-				const timeLeft = calculateRemainingTime(event.registrationDeadline);
-				setRemainingTime(timeLeft);
+			const event = upcomingEvents[0];
+			if (event?.registrationDeadline) {
+				setRemainingTime(calculateRemainingTime(event.registrationDeadline));
 			}
 		};
 
-		// Update every second (1000ms)
-		const timerId = setInterval(updateRemainingTime, 1000);
-
-		// Run initial calculation immediately
 		updateRemainingTime();
-
-		// Cleanup timer on unmount
+		const timerId = setInterval(updateRemainingTime, 1000);
 		return () => clearInterval(timerId);
 	}, [upcomingEvents]);
 
-	const renderEventCard = (
-		event: Event,
-		index: Key | null | undefined,
-		isFinished = false
-	) => (
+	const renderEventCard = (event: Event, index: number, isFinished = false) => (
 		<motion.div
 			key={index}
 			initial={{ opacity: 0, y: 20 }}
 			whileInView={{ opacity: 1, y: 0 }}
-			transition={{
-				duration: 0.5,
-				delay: typeof index === "number" ? index * 0.2 : 0,
-			}}
+			transition={{ duration: 0.5, delay: index * 0.2 }}
 			viewport={{ once: true }}
 			className="bg-white border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden group flex flex-col">
-			{/* Event Image */}
 			<div className="relative w-full h-64 bg-white flex items-center justify-center">
 				{event.image ? (
 					<Image
@@ -156,8 +144,6 @@ export default function EventsMain() {
 						No Image Available
 					</div>
 				)}
-
-				{/* Badge for Upcoming Events */}
 				{!isFinished && (
 					<span className="absolute top-10 left-4 px-3 py-1 bg-red-600 text-white font-semibold text-xs rounded-full shadow-md">
 						Upcoming
@@ -165,14 +151,12 @@ export default function EventsMain() {
 				)}
 			</div>
 
-			{/* Event Content */}
 			<div className="p-5 flex flex-col flex-grow">
 				<h2 className="text-lg font-bold text-red-600">{event.title}</h2>
 				<p className="text-sm text-black mt-1">
 					{event.date} | {event.location}
 				</p>
 
-				{/* Countdown Timer and Last Registration Date */}
 				{!isFinished && event.registrationDeadline && (
 					<div className="mt-3 text-sm text-black font-semibold">
 						<div>
@@ -190,54 +174,44 @@ export default function EventsMain() {
 					</div>
 				)}
 
-				{/* Event Details */}
 				{isFinished ? (
 					<p className="mt-3 text-sm text-black flex-grow">
 						{event.description || "Stay tuned for more details."}
 					</p>
 				) : (
 					<>
-						{/* Event Price, Extra Info, and Contact */}
 						<ul className="mt-3 text-sm text-black flex-grow space-y-4">
 							{event.price && (
 								<li className="p-4 bg-gray-100 rounded-lg shadow-md">
-									<strong className="text-sm text-gray-800 font-semibold">
-										Meeting Fee:
-									</strong>
+									<strong>Meeting Fee:</strong>
 									<p>{event.price}</p>
 								</li>
 							)}
-
 							{event.extraInfo && (
 								<li className="p-4 bg-gray-100 rounded-lg shadow-md">
-									<strong className="text-sm text-gray-800 font-semibold">
-										Note:
-									</strong>
+									<strong>Note:</strong>
 									<p>{event.extraInfo}</p>
 								</li>
 							)}
-
 							{event.contact && (
 								<li className="p-4 bg-gray-100 rounded-lg shadow-md">
-									<strong className="text-sm text-gray-800 font-semibold">
-										Contact:
-									</strong>
-									<p className="mt-1 text-sm text-gray-800">
-										<span className="font-medium">Aparna Kokala</span>{" "}
-										<span className="text-gray-600">
-											for LED presentation slots
-										</span>{" "}
+									<h3 className="text-sm font-semibold text-gray-800 mb-1">
+										Contact
+									</h3>
+									<div className="flex items-center gap-3 text-sm text-gray-700">
+										<FiPhoneCall className="text-green-600 text-lg" />
 										<a
 											href={`tel:${event.contact}`}
-											className="text-blue-600 hover:text-blue-800 transition-colors">
+											className="text-blue-600 font-medium hover:underline hover:text-blue-800 transition duration-150">
 											{event.contact}
 										</a>
-									</p>
+									</div>
+									<h3 className="text-xs text-gray-900 mt-1 ml-7">
+										<b>Aparna Kokala</b> – for LED presentation slots
+									</h3>
 								</li>
 							)}
 						</ul>
-
-						{/* Payment Button */}
 						{event.paymentLink && (
 							<div className="mt-4">
 								<a
@@ -252,7 +226,6 @@ export default function EventsMain() {
 					</>
 				)}
 
-				{/* Gallery Link for Finished Events */}
 				{isFinished && (
 					<div className="mt-4">
 						<Link
@@ -263,7 +236,6 @@ export default function EventsMain() {
 					</div>
 				)}
 
-				{/* WhatsApp Share Link */}
 				<div className="mt-4">
 					<a
 						href={`https://wa.me/?text=${encodeURIComponent(
@@ -282,27 +254,25 @@ export default function EventsMain() {
 	return (
 		<section className="relative py-[120px] min-h-[calc(100vh-80px)] w-full bg-gradient-to-br from-gray-50 via-white to-red-50 text-black px-4 sm:px-6 lg:px-8">
 			<div className="max-w-7xl mx-auto">
-				{/* Top Section with Title and Back Button */}
-				<div className=" mb-12">
+				<div className="mb-12">
 					<h1 className="text-4xl font-extrabold text-red-600 mb-4">
 						WEN Events
 					</h1>
-					<Link href="/" className="text-red-600 text-sm  ">
+					<Link href="/" className="text-red-600 text-sm">
 						← Back to Home
 					</Link>
-					<h3 className="text-md sm:text-lg  leading-tight text-black mt-4">
+					<h3 className="text-md sm:text-lg leading-tight text-black mt-4">
 						Explore impactful events that bring together ambitious women
 						entrepreneurs from across the globe.
 					</h3>
 				</div>
 
-				{/* Upcoming Events */}
 				<motion.div
 					initial={{ opacity: 0, y: -40 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.6 }}
 					viewport={{ once: true }}
-					className=" space-y-6">
+					className="space-y-6">
 					<h2 className="text-3xl sm:text-4xl font-bold leading-tight text-red-600">
 						Upcoming Events
 					</h2>
@@ -312,7 +282,6 @@ export default function EventsMain() {
 					{upcomingEvents.map((event, index) => renderEventCard(event, index))}
 				</div>
 
-				{/* Past Events */}
 				<div className="mt-16">
 					<h3 className="text-3xl sm:text-4xl font-bold leading-tight text-red-600">
 						Previous Events

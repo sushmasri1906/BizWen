@@ -26,8 +26,9 @@ export default function JoinWEN() {
 						<li>Collaborate with like-minded professionals</li>
 					</ul>
 
+					{/* Updated Link */}
 					<Link
-						href="https://your-link-here.com"
+						href="https://www.bizn.in/"
 						target="_blank"
 						className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold text-base px-4 py-2 rounded-none shadow-lg transition duration-300">
 						Join the Network

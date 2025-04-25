@@ -26,8 +26,9 @@ const Community = () => {
 					we believe in the power of community to drive success and create
 					impact.
 				</p>
+				{/* Updated Link */}
 				<Link
-					href="#join"
+					href="https://www.bizn.in/"
 					className="inline-flex items-center justify-center bg-red-600 text-white px-6 py-3 font-semibold text-lg shadow-lg hover:bg-red-700 transition duration-300 border-2 border-transparent hover:border-red-600">
 					Join the WEN Community <FaArrowRight className="ml-3" />
 				</Link>

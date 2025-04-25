@@ -32,7 +32,7 @@ const Hero = () => {
 					</div>
 
 					<div className="w-full md:w-1/2 flex justify-center">
-						<div className="relative w-[90%] max-w-lg overflow-hidden rounded-lg shadow-lg">
+						<div className="relative w-[90%] max-w-lg overflow-hidden">
 							<Image
 								src="https://res.cloudinary.com/dotuv0p3r/image/upload/v1744368402/7_yzhrsk.jpg"
 								alt="WEN Hero"

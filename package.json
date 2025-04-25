@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sanity/client": "^6.29.0",
     "framer-motion": "^12.7.4",
     "next": "15.2.5",
     "react": "^19.0.0",
@@ -27,6 +28,6 @@
     "eslint": "^9",
     "eslint-config-next": "15.2.5",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5.8.3"
   }
 }
